@@ -1,5 +1,5 @@
 #taskbar {
-    background-image: url("./img/taskbar_background.png");
+    background-image: url("../img/taskbar/taskbar_background.png");
     width: 100%;
     height: 28px;
 
@@ -18,18 +18,18 @@
 
 /*Start Button*/
 #startButton{
-    background-image: url("./img/start_button.png");
+    background-image: url("../img/taskbar/start_button.png");
     width: 59px;
     height: 28px;
 }
 
 #startButton.pressed{
-    background-image: url("./img/start_button_pressed.png");
+    background-image: url("../img/taskbar/start_button_pressed.png");
 }
 
 /*Separators*/
 .taskbar_separator{
-    background-image: url("./img/separator.png");
+    background-image: url("../img/taskbar/separator.png");
     width: 9px;
     height: 26px;
 
