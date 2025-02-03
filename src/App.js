@@ -6,6 +6,10 @@ import './App.css';
 //Sounds
 import snd_logon from "./assets/sounds/logon.wav"
 
+
+// icons
+import "./assets/style/style_desktopIcons.css"
+
 import ico_iexplore from "./assets/img/icons/internet_explorer/internet_explorer.ico"
 
 import ico_explorer from "./assets/img/icons/explorer/explorer.ico"
@@ -19,7 +23,6 @@ import ico_mspaint from "./assets/img/icons/mspaint/mspaint.ico"
 import ico_mspaint_image from "./assets/img/icons/mspaint/mspaint_image.ico"
 
 import ico_notepad from "./assets/img/icons/notepad/notepad.ico"
-
 
 //Start Menu
 import start_banner from "./assets/img/start_banner.png"
