@@ -6,19 +6,19 @@ import Mspaint from "../programs/mspaint/Mspaint";
 import Notepad from "../programs/notepad/Notepad";
 
 // icons
-import ico_iexplore from "../../img/icons/internet_explorer/internet_explorer.ico"
+import ico_iexplore from "../../assets/img/icons/internet_explorer/internet_explorer.ico"
 
-import ico_explorer from "../../img/icons/explorer/explorer.ico"
-import ico_my_computer from "../../img/icons/explorer/my_computer.ico"
-import ico_recycle_bin from "../../img/icons/explorer/recycle_bin.ico"
+import ico_explorer from "../../assets/img/icons/explorer/explorer.ico"
+import ico_my_computer from "../../assets/img/icons/explorer/my_computer.ico"
+import ico_recycle_bin from "../../assets/img/icons/explorer/recycle_bin.ico"
 
-import ico_msg_x from "../..//img/icons/msg/msg_x.ico"
-import ico_msg_exclamation from "../../img/icons/msg/msg_exclamation.ico"
+import ico_msg_x from "../../assets/img/icons/msg/msg_x.ico"
+import ico_msg_exclamation from "../../assets/img/icons/msg/msg_exclamation.ico"
 
-import ico_mspaint from "../..//img/icons/mspaint/mspaint.ico"
-import ico_mspaint_image from "../../img/icons/mspaint/mspaint_image.ico"
+import ico_mspaint from "../../assets/img/icons/mspaint/mspaint.ico"
+import ico_mspaint_image from "../../assets/img/icons/mspaint/mspaint_image.ico"
 
-import ico_notepad from "../../img/icons/notepad/notepad.ico"
+import ico_notepad from "../../assets/img/icons/notepad/notepad.ico"
 
 function Window(props){
     const [titlebar, setTitlebar] = useState(props.titlebar);
