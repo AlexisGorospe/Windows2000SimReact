@@ -3,6 +3,12 @@
   src: url('assets/fonts/tahoma_8px/fs-tahoma-8px.ttf'); /*URL to font*/
 }
 
+@font-face {
+  font-family: 'tahoma_8px_bold'; /*a name to be used later*/
+  src: url('assets/fonts/tahoma_8px_bold/ms-tahoma-bold-8px.ttf') /*URL to font*/
+}
+
+
 body{
   background-color: #376ea6;
 }
@@ -18,6 +24,20 @@ p{
   font-size: large;
 }
 
-h1, h2, h3, h4 ,h5, p, a, button, time{
+p, a, button, time{
   font-family: "tahoma_8px";
+}
+
+h1, h2, h3, h4 ,h5{
+  font-family: "tahoma_8px_bold";
+}
+
+
+.text_regular{
+  font-size: normal;
+}
+
+.text_bold{
+  font-family: "tahoma_8px_bold";
+  font-size: small;
 }

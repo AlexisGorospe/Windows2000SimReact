@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'tahoma_8px'; /*a name to be used later*/
+    src: url('../../assets/fonts/tahoma_8px/fs-tahoma-8px.ttf'); /*URL to font*/
+}
+  
+@font-face {
+    font-family: 'tahoma_8px_bold'; /*a name to be used later*/
+    src: url('../../assets/fonts/tahoma_8px_bold/ms-tahoma-bold-8px.ttf') /*URL to font*/
+}
+
 .window{
     height: 50px;
     width: 50%;
@@ -33,7 +43,7 @@
             p{
                 color: white;
                 margin: 0;
-                font-weight: bold;
+                font-family: "tahoma_8px_bold";
             }
         }
 

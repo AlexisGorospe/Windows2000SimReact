@@ -8,17 +8,17 @@ import Notepad from "../programs/notepad/Notepad";
 // icons
 import ico_iexplore from "../../img/icons/internet_explorer/internet_explorer.ico"
 
-import ico_explorer from "../..//img/icons/explorer/explorer.ico"
-import ico_my_computer from "../..//img/icons/explorer/my_computer.ico"
-import ico_recycle_bin from "../..//img/icons/explorer/recycle_bin.ico"
+import ico_explorer from "../../img/icons/explorer/explorer.ico"
+import ico_my_computer from "../../img/icons/explorer/my_computer.ico"
+import ico_recycle_bin from "../../img/icons/explorer/recycle_bin.ico"
 
 import ico_msg_x from "../..//img/icons/msg/msg_x.ico"
-import ico_msg_exclamation from "../..//img/icons/msg/msg_exclamation.ico"
+import ico_msg_exclamation from "../../img/icons/msg/msg_exclamation.ico"
 
 import ico_mspaint from "../..//img/icons/mspaint/mspaint.ico"
-import ico_mspaint_image from "../..//img/icons/mspaint/mspaint_image.ico"
+import ico_mspaint_image from "../../img/icons/mspaint/mspaint_image.ico"
 
-import ico_notepad from "../..//img/icons/notepad/notepad.ico"
+import ico_notepad from "../../img/icons/notepad/notepad.ico"
 
 function Window(props){
     const [titlebar, setTitlebar] = useState(props.titlebar);
@@ -61,8 +61,7 @@ function Window(props){
             <div className={"titlebar"}>
                 <div className={"titlebar_left"}>
                     <img src={iconList[program]} width={"16px"} height={"16px"} />
-                    {/*ie is here for testing purposes, also this is an icon*/}
-                    <p>{`${props.titlebar}`}</p>
+                    <p className={"text_bold"}>{`${props.titlebar}`}</p>
                 </div>
                 <div className={"buttons"}>
                     <button className={"window_button_minimize"}></button>

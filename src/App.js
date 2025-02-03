@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react";
 import './App.css';
 
 //Sounds
-import snd_logon from "./sounds/logon.wav"
+import snd_logon from "./assets/sounds/logon.wav"
 
 //icons
 import Icons from "./img/icons/style.css";
@@ -86,7 +86,7 @@ const App = () => {
                 {windows.map(window => window)}
 
                 {/*test*/}
-                <Window titlebar={"Balls"} icon_class={"2"} program={1}/>
+                <Window titlebar={"This is a test."} icon_class={"2"} program={1}/>
             </div>
 
             <div id={"desktop_icon_grid"}>
