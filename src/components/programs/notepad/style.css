@@ -1,0 +1,11 @@
+.program_notepad{
+    width: calc(100% - 9px);
+    height: calc(100% - 47px);
+
+    textarea{
+        resize: none;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+}

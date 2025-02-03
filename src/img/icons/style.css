@@ -1,0 +1,41 @@
+/*internet explorer*/
+.internet_explorer{
+    background-image: url("internet_explorer/internet_explorer.ico");
+}
+
+/*notepad*/
+.notepad{
+    background-image: url("notepad/notepad.ico");
+}
+
+/*msg boxes*/
+
+.msg_exclamation{
+    background-image: url("msg/msg_exclamation.ico");
+}
+
+.msg_x{
+    background-image: url("msg/msg_x.ico");
+}
+
+/*file explorer*/
+.explorer{
+    background-image: url("explorer/explorer.ico");
+}
+
+.my_computer{
+    background-image: url("explorer/my_computer.ico");
+}
+
+.recycle_bin{
+    background-image: url("explorer/recycle_bin.ico");
+}
+
+/*mspaint*/
+.mspaint_image{
+    background-image: url("mspaint/mspaint_image.ico");
+}
+
+.mspaint{
+    background-image: url("mspaint/mspaint.ico");
+}

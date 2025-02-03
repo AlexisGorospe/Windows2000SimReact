@@ -1,0 +1,7 @@
+to do list:
+- keep working on quick launch
+- draggable windows with applications inside them
+- list of programs open programs that will appear in the taskbar
+- start menu (in progress)
+- desktop icons (in progress)
+- taskbar clock (in progress)

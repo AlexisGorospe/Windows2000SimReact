@@ -1,0 +1,105 @@
+.window{
+    height: 50px;
+    width: 50%;
+    background-color: #d4d0c8;
+    border-style: solid;
+    border-width: 2px;
+    border-top-color: #d4d0c8;
+    border-left-color: #d4d0c8;
+    border-bottom-color: #404040;
+    border-right-color: #404040;
+    display: flex;
+    flex-direction: row;
+
+    .titlebar{
+        height: 16px;
+        width: calc(100% - 4px);
+        background: linear-gradient(90deg, rgba(10,36,106,1) 0%, rgba(166,202,240,1) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1px 2px;
+
+        .titlebar_left{
+            display: flex;
+            align-items: center;
+
+            .titlebar_icon{
+                width: 16px;
+                height: 16px;
+                background-size: 16px;
+            }
+
+            p{
+                color: white;
+                margin: 0;
+                font-weight: bold;
+            }
+        }
+
+        .buttons{
+            display: flex;
+
+            button{
+                width: 16px;
+                height: 14px;
+            }
+
+            .window_button_minimize{
+                background-image: url("./img/window_minimize.png");
+            }
+
+            .window_button_maximize{
+                background-image: url("./img/window_maximize.png");
+            }
+
+            .window_button_close{
+                background-image: url("./img/window_close.png");
+                margin-left: 2px;
+            }
+        }
+
+    }
+
+    .menubar{
+        display: flex;
+        height: 20px;
+
+        button{
+            height: 100%;
+            margin-left: 1px;
+            margin-right: 1px;
+        }
+
+        button:hover{
+            height: 18px;
+            border: solid;
+            border-width: 1px;
+            border-radius: 0;
+            border-left-color: white;
+            border-top-color: white;
+            border-right-color: #404040;
+            border-bottom-color: #404040;
+            margin: 0;
+        }
+
+        button:active{
+            height: 18px;
+            border: solid;
+            border-width: 1px;
+            border-radius: 0;
+            border-left-color: #404040;
+            border-top-color: #404040;
+            border-right-color: white;
+            border-bottom-color: white;
+            margin: 0;
+        }
+    }
+}
+
+.menubar{
+    button{
+        font-size: large;
+        text-align: center;
+    }
+}
