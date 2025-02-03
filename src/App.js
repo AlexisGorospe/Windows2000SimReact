@@ -43,7 +43,6 @@ import Notepad from "./components/programs/notepad/Notepad";
 import "./components/programs/notepad/style.css";
 
 import * as PropTypes from "prop-types";
-import Windows from "./components/windows/WindowsOld [2024-10-30]";
 
 function Draggable(props) {
     return null;
