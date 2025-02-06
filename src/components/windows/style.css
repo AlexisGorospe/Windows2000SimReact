@@ -55,6 +55,8 @@
             button{
                 width: 16px;
                 height: 14px;
+                text-align: center;
+                line-height: 65px;
             }
 
             .window_button_minimize{

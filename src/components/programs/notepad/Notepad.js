@@ -4,14 +4,20 @@ function Notepad(props) {
     const [fileDDM, setFileDDM] = useState(false)
     const [textAreaContent, setTextAreaContent] =  useState("")
 
+    function handleTextAreaChange(event){
+        setTextAreaContent(event.target.value)
+    }
+
+    // ---New DDM---
     //DDM is short for drop-down menu
     function showFileDDM(){
         setFileDDM(!fileDDM)
         console.log(fileDDM)
     }
 
-    function setNewFile(){
-        // stuff to just erase the contents of the textarea
+    function file_new(){
+        setTextAreaContent("")
+        setFileDDM(false)
     }
     
     return (
@@ -21,8 +27,8 @@ function Notepad(props) {
 
                 <div className="dropdown">
                     <button className="dropbtn" onClick={showFileDDM}>File</button>
-                    <div id="myDropdown" class={fileDDM ? 'dropdown-content visible' : 'dropdown-content '}>
-                        <a href="#">New</a>
+                    <div id="myDropdown" className={fileDDM ? 'dropdown-content visible' : 'dropdown-content '}>
+                        <a onClick={file_new}>New</a>
                         <a href="#">Open</a>
                         <a href="#">Save</a>
                         <a href="#">Save As</a>
@@ -33,7 +39,7 @@ function Notepad(props) {
                 <button>Format</button>
                 <button>Help</button>
             </div>
-            <textarea onChange={props.onChange} value={props.value} name="notepad"></textarea>
+            <textarea onChange={handleTextAreaChange} value={textAreaContent} name="notepad"></textarea>
         </div>
     );
 
