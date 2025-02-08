@@ -33,15 +33,17 @@
         border-bottom-color: #404040;
         border-right-color: #404040;
 
-        a {
+        a, input{
             color: black;
             text-decoration: none;
             display: block;
             padding-left: 18px;
             height: 17px;
+
+            cursor: default;
         }
 
-        a:hover {
+        a:hover, input:hover {
             background-color: #0a246a;
             color: white;
         }
