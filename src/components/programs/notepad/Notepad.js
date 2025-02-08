@@ -1,14 +1,13 @@
-// https://developer.mozilla.org/en-US/docs/Web/API/FileReader/readAsText
-
-
-
 import React, {useState} from "react";
+import Window from "../../windows/Window.js";
 
 function Notepad(props) {
     // file
     const [fileDDM, setFileDDM] = useState(false)
     const [textAreaContent, setTextAreaContent] =  useState("")
     const [file, setFile] = useState("");
+
+    const [windows , setWindows] = useState([]);
 
     function handleTextAreaChange(event){
         setTextAreaContent(event.target.value)
@@ -45,10 +44,28 @@ function Notepad(props) {
 
         document.body.removeChild(link)
         URL.revokeObjectURL(url)
+
+        // THANK YOU https://www.youtube.com/watch?v=Wn8gR3CSuEc
+    }
+
+    // Window
+    const createNewWindow = (titlebar = "Untitled - Notepad", program = 2) => {
+        console.log(titlebar)
+        console.log(program)
+
+        setWindows((prevWindows) => [
+            ...prevWindows,
+            <Window key={prevWindows.length} titlebar={titlebar}program={program.toString()}/>
+        ]);
+        console.log(titlebar + program);
     }
     
     return (
         <div className={"program_notepad"}>
+            <div className={"windows"}>
+                {windows.map(window => window)}
+            </div>
+
             <div className={"menubar"}>
                 {/*https://www.w3schools.com/howto/howto_js_dropdown.asp*/}
 
@@ -58,7 +75,7 @@ function Notepad(props) {
                         <a onClick={file_new}>New</a>
                         <a onClick={file_open}>Open</a>
                         <a onClick={file_save}>Save</a>
-                        <a href="#">Save As</a>
+                        <a onClick={createNewWindow}>Save As</a>
                     </div>
                 </div>
 

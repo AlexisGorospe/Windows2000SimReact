@@ -120,7 +120,7 @@ const App = () => {
         <div className="App">
             <button onClick={createNewWindow}>test button</button>
 
-            <div id={"windows"}>
+            <div className={"windows"}>
                 {windows.map(window => window)}
 
                 {/*test*/}
