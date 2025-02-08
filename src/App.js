@@ -8,8 +8,6 @@ import snd_logon from "./assets/sounds/logon.wav"
 
 
 // icons
-import "./assets/style/style_desktopIcons.css"
-
 import ico_iexplore from "./assets/img/icons/internet_explorer/internet_explorer.ico"
 
 import ico_explorer from "./assets/img/icons/explorer/explorer.ico"
@@ -34,6 +32,9 @@ import "./assets/style/style_taskbar.css"
 //Window
 import Window from "./components/windows/Window";
 import "./components/windows/style.css";
+
+//Desktop icons
+import "./assets/style/style_desktopIcons.css"
 
 //Programs
 import Mspaint from "./components/programs/mspaint/Mspaint";
@@ -63,6 +64,15 @@ const App = () => {
     // taskbar and stuff
     const [startMenuOpen, setStartMenuOpen] = useState(false);
 
+    // desktop icons
+    const [desktopIcons, setDesktopIcons] = useState([])
+    const desktopIconList = [
+        // [titlebar, program, icon, name],
+        ["Untitled - Notepad", 1, ico_notepad, "Notepad"],
+        ["Untitled - Paint", 2, ico_mspaint, "Paint"],
+    ]
+
+
     // Window
     const createNewWindow = (titlebar = "Untitled - Notepad", program = 1) => {
         console.log(titlebar)
@@ -81,15 +91,29 @@ const App = () => {
         console.log(startMenuOpen);
     }
 
+    // Desktop icons
+    /*
+    const initializeDesktopIcons = () => {
+        
+        for (var icon in desktopIconList){
+            setDesktopIcons((prevDesktopIcons) => [
+                ...prevDesktopIcons,
+                <button className={"desktop_icon"} onDoubleClick={() => {createNewWindow("Untitled - Notepad", 2)}}>
+                    <img src={ico_notepad}/>
+                    <p>{"Notepad"}</p>
+                </button>
+    
+            ])
+        }
+    }
+        
+
+    initializeDesktopIcons()
+    */
+
+
     const testfunction = () => {
         console.log("it works");
-    }
-
-    //props for icons
-    const notepad_props = { //make it so that it works for other programs too
-        className: "notepad",
-        name: "Notepad",
-        program: "notepad"
     }
 
     return (
@@ -122,6 +146,11 @@ const App = () => {
                     <img src={ico_notepad}/>
                     <p>{"Notepad"}</p>
                 </button>
+                <button className={"desktop_icon"} onDoubleClick={() => {createNewWindow("Untitled - Paint", 1)}}>
+                    <img src={ico_mspaint}/>
+                    <p>{"Paint"}</p>
+                </button>
+                {}
                 {/*
                 <button className={"desktop_icon"} onDoubleClick={this.createNewWindow("Untitled - Notepad","internet_explorer", "notepad")}>
                     <div className={"notepad"}/>
