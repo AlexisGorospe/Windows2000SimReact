@@ -4,8 +4,10 @@ import Window from "../../windows/Window.js";
 function Notepad(props) {
     // file
     const [fileDDM, setFileDDM] = useState(false)
+    const [viewDDM, setViewDDM] = useState(false)
     const [textAreaContent, setTextAreaContent] =  useState("")
     const [file, setFile] = useState("");
+    const [wordWrap, setWordWrap] = useState(false)
 
     const [windows , setWindows] = useState([]);
 
@@ -48,6 +50,13 @@ function Notepad(props) {
         // THANK YOU https://www.youtube.com/watch?v=Wn8gR3CSuEc
     }
 
+
+    // --view--
+    function showViewDDM(){
+        setViewDDM(!viewDDM)
+        console.log(viewDDM)
+    }
+
     // Window
     const createNewWindow = (titlebar = "Untitled - Notepad", program = 2) => {
         console.log(titlebar)
@@ -81,10 +90,16 @@ function Notepad(props) {
 
 
                 <button>Edit</button>
-                <button>Format</button>
+                <div className="dropdown">
+                    <button className="dropbtn" onClick={showViewDDM}>View</button>
+                    <div id="myDropdown" className={viewDDM ? 'dropdown-content visible' : 'dropdown-content '}>
+                        <a onClick={() => {setWordWrap(!wordWrap)}}>Word Wrap</a>
+                        <a onClick={"#"}>Font</a>
+                    </div>
+                </div>
                 <button>Help</button>
             </div>
-            <textarea onChange={handleTextAreaChange} value={textAreaContent} name="notepad"></textarea>
+            <textarea onChange={handleTextAreaChange} value={textAreaContent} name="notepad" className={wordWrap ? '' : 'noWordWrap'}></textarea>
         </div>
     );
 
