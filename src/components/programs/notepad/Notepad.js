@@ -6,7 +6,6 @@ function Notepad(props) {
     const [fileDDM, setFileDDM] = useState(false)
     const [viewDDM, setViewDDM] = useState(false)
     const [textAreaContent, setTextAreaContent] =  useState("")
-    const [file, setFile] = useState("");
     const [wordWrap, setWordWrap] = useState(false)
 
     const [windows , setWindows] = useState([]);
@@ -18,24 +17,27 @@ function Notepad(props) {
     // ---New DDM---
     //DDM is short for drop-down menu
     function showFileDDM(){
+        setViewDDM(false)
         setFileDDM(!fileDDM)
         console.log(fileDDM)
-        console.log(file)
     }
 
     function file_new(){
+        setFileDDM(false)
         setTextAreaContent("")
         setFileDDM(false)
     }
 
     function file_open(){
+        setFileDDM(false)
         console.log("this function is supposed to ask the user for a text file they wanna open in this notepad sim")
         
         
         // let popupWindow = window.open('url','windowName','options') //keeping this comment here because i think it's cool
     }
 
-    function file_save(){
+    function file_save(){        
+        setFileDDM(false)
         const blob = new Blob([textAreaContent], {type: "text/plain"})
         const url = URL.createObjectURL(blob)
         const link = document.createElement("a")
@@ -53,8 +55,14 @@ function Notepad(props) {
 
     // --view--
     function showViewDDM(){
+        setFileDDM(false)
         setViewDDM(!viewDDM)
         console.log(viewDDM)
+    }
+
+    function view_word_wrap(){
+        setViewDDM(false)
+        setWordWrap(!wordWrap)
     }
 
     // Window
@@ -93,7 +101,7 @@ function Notepad(props) {
                 <div className="dropdown">
                     <button className="dropbtn" onClick={showViewDDM}>View</button>
                     <div id="myDropdown" className={viewDDM ? 'dropdown-content visible' : 'dropdown-content '}>
-                        <a onClick={() => {setWordWrap(!wordWrap)}}>Word Wrap</a>
+                        <a onClick={view_word_wrap}>Word Wrap</a>
                         <a onClick={"#"}>Font</a>
                     </div>
                 </div>
