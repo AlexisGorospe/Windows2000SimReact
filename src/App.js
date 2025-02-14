@@ -75,6 +75,7 @@ const App = () => {
 
     // Window
     const createNewWindow = (titlebar = "Untitled - Notepad", program = 1) => {
+        setStartMenuOpen(false)
         console.log(titlebar)
         console.log(program)
 
@@ -198,9 +199,13 @@ const App = () => {
                 <img id={"start_logo_banner"} src={start_banner}/>
                 <div id={"start_menu_programs"}>
                     <div className={"start_program_list"}>
-                        <button className={"start_program"} onClick={startClick}>
-                            <img src={ico_iexplore}/>
-                            <p className={"start_program_name"}>Internet Explorer</p>
+                        <button className={"start_program"} onClick={() => {createNewWindow("Untitled - Notepad", 2)}}>
+                            <img src={ico_notepad}/>
+                            <p className={"start_program_name"}>Notepad</p>
+                        </button>
+                        <button className={"start_program"} onClick={() => {createNewWindow("untitled - Paint", 1)}}>
+                            <img src={ico_mspaint}/>
+                            <p className={"start_program_name"}>Paint</p>
                         </button>
                     </div>
                     <div className={"start_menu_separator"}></div>
