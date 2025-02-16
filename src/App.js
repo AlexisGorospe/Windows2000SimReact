@@ -148,13 +148,23 @@ const App = () => {
                     createNewWindow={createNewWindow}
                 />
                 */}
-                <button className={"desktop_icon"} onDoubleClick={() => {createNewWindow("Untitled - Notepad", 2)}}>
+                <button className={"desktop_icon"} onDoubleClick={() => {
+                    createNewWindow("Untitled - Notepad", 2)
+                }}>
                     <img src={ico_notepad}/>
                     <p>{"Notepad"}</p>
                 </button>
-                <button className={"desktop_icon"} onDoubleClick={() => {createNewWindow("Untitled - Paint", 1)}}>
+                <button className={"desktop_icon"} onDoubleClick={() => {
+                    createNewWindow("Untitled - Paint", 1)
+                }}>
                     <img src={ico_mspaint}/>
                     <p>{"Paint"}</p>
+                </button>
+                <button className={"desktop_icon"} onDoubleClick={() => {
+                    createNewWindow("About", 3)
+                }}>
+                    <img src={ico_msg_exclamation}/>
+                    <p>{"winver.exe"}</p>
                 </button>
                 {}
                 {/*

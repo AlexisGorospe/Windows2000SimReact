@@ -7,6 +7,12 @@ function About(props){
     const [about_icon, setAbout_icon] = useState(props.about_icon);
     const [about_programName, setAbout_programName] = useState(props.about_programName);
 
+    console.log(about_icon);
+
+    if (about_programName === " "){
+        setAbout_programName("Windows")
+    }
+
 
     return(
         <div className={"about"}>
@@ -14,7 +20,7 @@ function About(props){
 
             <div className={"the_divide"}>
                 <div className={"whole_purpose_is_to_contain_an_image"}>
-                    <img src={about_icon}/>
+                    <img src={about_icon} className={about_icon ? '' : 'hidden'}/>
                 </div>
                 <div className={"about_text"}>
                     <p>Microsoft (R) {about_programName}</p>

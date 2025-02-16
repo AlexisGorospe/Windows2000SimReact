@@ -25,6 +25,10 @@ function Window(props){
     const [titlebar, setTitlebar] = useState(props.titlebar);
     const [window_id, setWindow_id] = useState(props.window_id);
 
+    const [max_height, setMaxHeight] = useState(props.max_height);
+    const [max_width, setMaxWidth] = useState(props.max_width);
+
+
     const [isOpen, setIsOpen] = useState(true);
     const [isVisible, setIsVisible] = useState(true);
 
@@ -67,7 +71,7 @@ function Window(props){
     }
 
     return(
-        <Rnd className={"window"} default={{x: 30, y: 30, width: 300, height: 200, minwidth: 300, minheight: 300}} dragHandleClassName={"titlebar"}>
+        <Rnd className={"window"} default={{x: 30, y: 30, width: 300, height: 200, minHeight: {max_height}, minWidth: {max_width}}} dragHandleClassName={"titlebar"}>
             <div className={"titlebar"}>
                 <div className={"titlebar_left"}>
                     <img src={iconList[program]} width={"16px"} height={"16px"} />

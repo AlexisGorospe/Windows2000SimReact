@@ -101,7 +101,7 @@ function Notepad(props) {
         closeDDMs()
         setWindows((prevWindows) => [
             ...prevWindows,
-            <Window key={prevWindows.length} titlebar={"About"} program={3} about_icon={2} about_program_name={"Notepad"}/>
+            <Window key={prevWindows.length} titlebar={"About"} program={3} max_height={419} max_width={329} about_icon={2} about_program_name={"Notepad"}/>
         ]);
     }
     // Window
