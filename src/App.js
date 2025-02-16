@@ -43,6 +43,8 @@ import "./components/programs/mspaint/style.css";
 import Notepad from "./components/programs/notepad/Notepad";
 import "./components/programs/notepad/style.css";
 
+import "./assets/style/in_programs/style_menubar.css"
+
 import * as PropTypes from "prop-types";
 
 function Draggable(props) {

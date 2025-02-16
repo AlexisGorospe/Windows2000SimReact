@@ -4,7 +4,10 @@ import Window from "../../windows/Window.js";
 function Notepad(props) {
     // file
     const [fileDDM, setFileDDM] = useState(false)
+    const [editDDM, setEditDDM] = useState(false)
     const [viewDDM, setViewDDM] = useState(false)
+    const [helpDDM, setHelpDDM] = useState(false)
+
     const [textAreaContent, setTextAreaContent] =  useState("")
     const [wordWrap, setWordWrap] = useState(false)
 
@@ -14,30 +17,36 @@ function Notepad(props) {
         setTextAreaContent(event.target.value)
     }
 
+    function closeDDMs(){
+        setFileDDM(false)
+        setEditDDM(false)
+        setViewDDM(false)
+        setHelpDDM(false)
+    }
+
     // ---New DDM---
     //DDM is short for drop-down menu
     function showFileDDM(){
-        setViewDDM(false)
+        closeDDMs()
         setFileDDM(!fileDDM)
         console.log(fileDDM)
     }
 
     function file_new(){
-        setFileDDM(false)
+        closeDDMs()
         setTextAreaContent("")
-        setFileDDM(false)
     }
 
     function file_open(){
-        setFileDDM(false)
+        closeDDMs()
         console.log("this function is supposed to ask the user for a text file they wanna open in this notepad sim")
         
         
         // let popupWindow = window.open('url','windowName','options') //keeping this comment here because i think it's cool
     }
 
-    function file_save(){        
-        setFileDDM(false)
+    function file_save(){
+        closeDDMs()
         const blob = new Blob([textAreaContent], {type: "text/plain"})
         const url = URL.createObjectURL(blob)
         const link = document.createElement("a")
@@ -52,17 +61,39 @@ function Notepad(props) {
         // THANK YOU https://www.youtube.com/watch?v=Wn8gR3CSuEc
     }
 
+    // --edit--
+    function showEditDDM(){
+        closeDDMs()
+        setEditDDM(!editDDM)
+    }
+
+    function edit_timeDate(){
+        closeDDMs()
+        let date_rn = new Date();
+
+        //fix the formatting (or not)
+        setTextAreaContent(textAreaContent + date_rn)
+    }
+
 
     // --view--
     function showViewDDM(){
-        setFileDDM(false)
+        closeDDMs()
         setViewDDM(!viewDDM)
         console.log(viewDDM)
     }
 
     function view_word_wrap(){
-        setViewDDM(false)
+        closeDDMs()
         setWordWrap(!wordWrap)
+    }
+
+    // --help--
+
+    function showHelpDDM(){
+        closeDDMs()
+        setHelpDDM(!helpDDM)
+        console.log(viewDDM)
     }
 
     // Window
@@ -96,8 +127,14 @@ function Notepad(props) {
                     </div>
                 </div>
 
+                <div className="dropdown">
+                    <button className="dropbtn" onClick={showEditDDM}>Edit</button>
+                    <div id="myDropdown"className={editDDM ? 'dropdown-content visible' : 'dropdown-content '}>
+                        <a onClick={edit_timeDate}>Time/Date</a>
+                    </div>
+                </div>
 
-                <button>Edit</button>
+
                 <div className="dropdown">
                     <button className="dropbtn" onClick={showViewDDM}>View</button>
                     <div id="myDropdown" className={viewDDM ? 'dropdown-content visible' : 'dropdown-content '}>
@@ -105,9 +142,17 @@ function Notepad(props) {
                         <a onClick={"#"}>Font</a>
                     </div>
                 </div>
-                <button>Help</button>
+
+                <div className="dropdown">
+                    <button className="dropbtn" onClick={showHelpDDM}>Help</button>
+                    <div id="myDropdown" className={helpDDM ? 'dropdown-content visible' : 'dropdown-content '}>
+                        <a onClick={view_word_wrap}>Help Topics</a>
+                        <a onClick={"#"}>About Notepad</a>
+                    </div>
+                </div>
             </div>
-            <textarea onChange={handleTextAreaChange} value={textAreaContent} name="notepad" className={wordWrap ? '' : 'noWordWrap'}></textarea>
+            <textarea onChange={handleTextAreaChange} value={textAreaContent} name="notepad"
+                      className={wordWrap ? '' : 'noWordWrap'}></textarea>
         </div>
     );
 
