@@ -1,0 +1,37 @@
+.about{
+    width: 414px;
+    height: 305px;
+
+    .banner{
+        width: 413px;
+        height: 77px;
+    }
+
+
+
+    .the_divide{
+        display: flex;
+        .whole_purpose_is_to_contain_an_image{
+            width: 106px;
+            height: 228px;
+
+            img{
+                width: 32px;
+                height: 32px;
+                position: relative;
+                top: 5px;
+                left: 32px;
+            }
+        }
+
+        .about_text{
+            width: 309px;
+
+            p{
+                margin: 0;
+            }
+        }
+    }
+
+
+}

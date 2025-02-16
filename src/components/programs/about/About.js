@@ -1,5 +1,36 @@
 import React, {useState} from "react";
 
-function About(){
-    icon
+import Banner from "./img/banner.png"
+
+function About(props){
+
+    const [about_icon, setAbout_icon] = useState(props.about_icon);
+    const [about_programName, setAbout_programName] = useState(props.about_programName);
+
+
+    return(
+        <div className={"about"}>
+            <img className={"banner"} src={Banner}/>
+
+            <div className={"the_divide"}>
+                <div className={"whole_purpose_is_to_contain_an_image"}>
+                    <img src={about_icon}/>
+                </div>
+                <div className={"about_text"}>
+                    <p>Microsoft (R) {about_programName}</p>
+                    <p>Version 5.0 (Build 2195: Service Pack 4)</p>
+                    <p>Copyright (C) 1981-1999 Microsoft Corp.</p>
+                    <br/>
+                    <p>This product is licensed to:</p>
+                    <p>u lol</p>
+                    <hr/>
+                    <p>Physical memory available to Windows: idk i'm not a real about window</p>
+                </div>
+            </div>
+
+        </div>
+    )
 }
+
+
+export default About;

@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import Window from "../../windows/Window.js";
+import about from "../about/About";
 
 function Notepad(props) {
     // file
@@ -96,6 +97,13 @@ function Notepad(props) {
         console.log(viewDDM)
     }
 
+    const help_about = () => {
+        closeDDMs()
+        setWindows((prevWindows) => [
+            ...prevWindows,
+            <Window key={prevWindows.length} titlebar={"About"} program={3} about_icon={2} about_program_name={"Notepad"}/>
+        ]);
+    }
     // Window
     const createNewWindow = (titlebar = "Untitled - Notepad", program = 2) => {
         console.log(titlebar)
@@ -103,7 +111,7 @@ function Notepad(props) {
 
         setWindows((prevWindows) => [
             ...prevWindows,
-            <Window key={prevWindows.length} titlebar={titlebar}program={program.toString()}/>
+            <Window key={prevWindows.length} titlebar={titlebar} program={program.toString()}/>
         ]);
         console.log(titlebar + program);
     }
@@ -147,7 +155,7 @@ function Notepad(props) {
                     <button className="dropbtn" onClick={showHelpDDM}>Help</button>
                     <div id="myDropdown" className={helpDDM ? 'dropdown-content visible' : 'dropdown-content '}>
                         <a onClick={view_word_wrap}>Help Topics</a>
-                        <a onClick={"#"}>About Notepad</a>
+                        <a onClick={help_about}>About Notepad</a>
                     </div>
                 </div>
             </div>

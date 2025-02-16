@@ -4,6 +4,7 @@ import { Rnd } from 'react-rnd';
 // programs
 import Mspaint from "../programs/mspaint/Mspaint";
 import Notepad from "../programs/notepad/Notepad";
+import About from "../programs/about/About";
 
 // icons
 import ico_iexplore from "../../assets/img/icons/internet_explorer/internet_explorer.ico"
@@ -29,14 +30,25 @@ function Window(props){
 
     const [program, setProgram] = useState(props.program);
 
+    //--about window only--
+    const [about_icon, setAbout_icon] = useState(props.about_icon);
+    const [about_programName, setAbout_programName] = useState(props.about_program_name);
+
+    if (!about_programName){
+        setAbout_programName(" ")
+    }
+
+
     const programList = {
         1: Mspaint,
-        2: Notepad
+        2: Notepad,
+        3: About,
     };
 
     const iconList = {
         1: ico_mspaint_image,
-        2: ico_notepad
+        2: ico_notepad,
+        3: ico_notepad, //placeholder
     };
 
     const ProgramToRender = programList[props.program];
@@ -46,9 +58,7 @@ function Window(props){
         console.log("this window is supposed to delete itself");
         console.log(props.titlebar);
 
-
         setIsOpen(false);
-
     }
 
     //unrenders the component if isOpen is not true anymore
@@ -61,7 +71,7 @@ function Window(props){
             <div className={"titlebar"}>
                 <div className={"titlebar_left"}>
                     <img src={iconList[program]} width={"16px"} height={"16px"} />
-                    <p className={"text_bold"}>{`${props.titlebar}`}</p>
+                    <p className={"text_bold"}>{titlebar + " " +  about_programName}</p>
                 </div>
                 <div className={"buttons"}>
                     <button className={"window_button_minimize"}></button>
@@ -69,7 +79,7 @@ function Window(props){
                     <button className={"window_button_close"} onClick={closeProgram}></button>
                 </div>
             </div>
-            <ProgramToRender/>
+            <ProgramToRender about_icon={iconList[about_icon]} about_programName={about_programName}/>
         </Rnd>
     )
 }

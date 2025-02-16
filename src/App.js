@@ -43,6 +43,9 @@ import "./components/programs/mspaint/style.css";
 import Notepad from "./components/programs/notepad/Notepad";
 import "./components/programs/notepad/style.css";
 
+import About from "./components/programs/about/About"
+import "./components/programs/about/style.css"
+
 import "./assets/style/in_programs/style_menubar.css"
 
 import * as PropTypes from "prop-types";
@@ -83,7 +86,7 @@ const App = () => {
 
         setWindows((prevWindows) => [
             ...prevWindows,
-            <Window key={prevWindows.length} titlebar={titlebar}program={program.toString()}/>
+            <Window key={prevWindows.length} titlebar={titlebar} program={program.toString()}/>
         ]);
         console.log(titlebar + program);
     }
