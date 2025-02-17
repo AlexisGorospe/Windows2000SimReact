@@ -137,10 +137,6 @@ const App = () => {
         sound_logon()
     }
 
-    useEffect(() => {
-        sound_logon()
-    });
-
 
     return (
         <div className="App">
