@@ -1,9 +1,8 @@
 ---Credits---
 
 Microsoft:
-- Making Window 2000 in the first place
+- Making Windows 2000 in the first place
 - Microsoft Paint
-- the copilot ai (i used this because google won't give me the answers that I am looking for)
 
 Copy:
 - For making an online virtual machine so i can easily take screenshots of windows 2000 instead of relying on google images which usually give me blurry images
@@ -13,5 +12,9 @@ Copy:
 aaronk6 on internet archive
 - For making an archive ov every windows 2000 icon in .ico
 - https://archive.org/details/icons_win2k_sp4_en
+
+these people on github
+- https://github.com/joshwcomeau/use-sound 
+- https://github.com/bokuweb/react-rnd/releases
 
 And my professors who have taught me about web development.

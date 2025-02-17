@@ -1,11 +1,8 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Clock from "react-live-clock";
+import useSound from 'use-sound'; //i wanna play sounds
 
 import './App.css';
-
-//Sounds
-import snd_logon from "./assets/sounds/logon.wav"
-
 
 // icons
 import ico_iexplore from "./assets/img/icons/internet_explorer/internet_explorer.ico"
@@ -46,7 +43,14 @@ import "./components/programs/notepad/style.css";
 import About from "./components/programs/about/About"
 import "./components/programs/about/style.css"
 
+//stuff you will seein every program lmao
 import "./assets/style/in_programs/style_menubar.css"
+
+//sounds
+import snd_chimes from "./assets/sounds/chimes.wav"
+import snd_chord from "./assets/sounds/chord.wav"
+import snd_logon from "./assets/sounds/logon.wav"
+import snd_logoff from "./assets/sounds/logoff.wav"
 
 import * as PropTypes from "prop-types";
 
@@ -59,8 +63,8 @@ Draggable.propTypes = {
     children: PropTypes.node
 };
 
-const App = () => {
-    //state
+const App = () => {   
+    //state-------
 
     // Windows
     const [currentWindowId, setCurrentWindowId] = useState(0);
@@ -71,6 +75,13 @@ const App = () => {
 
     // desktop icons
     const [desktopIcons, setDesktopIcons] = useState([])
+
+    //sound
+    const [sound_logon] = useSound(snd_logon)
+
+    //functions-------
+
+    //desktop icons
     const desktopIconList = [
         // [titlebar, program, icon, name],
         ["Untitled - Notepad", 1, ico_notepad, "Notepad"],
@@ -117,14 +128,23 @@ const App = () => {
     initializeDesktopIcons()
     */
 
+    //sounds
+    
+
 
     const testfunction = () => {
         console.log("it works");
+        sound_logon()
     }
+
+    useEffect(() => {
+        sound_logon()
+    });
+
 
     return (
         <div className="App">
-            <button onClick={createNewWindow}>test button</button>
+            <button onClick={testfunction} id={"test_button"}>test button</button>
 
             <div className={"windows"}>
                 {windows.map(window => window)}
