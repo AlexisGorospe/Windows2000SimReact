@@ -42,6 +42,11 @@ function Window(props){
         setAbout_programName(" ")
     }
 
+    //check if ther user used an in program way to close the window
+    const checkIfClosedInProgram = (data) =>{
+        setIsOpen(data)
+    }
+
 
     const programList = {
         1: Mspaint,
@@ -65,6 +70,10 @@ function Window(props){
         setIsOpen(false);
     }
 
+    const handleDataFromProgram = (data)=>{
+        setIsOpen(data);
+    }
+
     //unrenders the component if isOpen is not true anymore
     if (!isOpen){
         return null;
@@ -83,7 +92,13 @@ function Window(props){
                     <button className={"window_button_close"} onClick={closeProgram}></button>
                 </div>
             </div>
-            <ProgramToRender about_icon={iconList[about_icon]} about_programName={about_programName}/>
+            <ProgramToRender
+            onDataFromProgram={handleDataFromProgram}
+
+            about_icon={iconList[about_icon]} 
+            about_programName={about_programName}
+            
+            />
         </Rnd>
     )
 }

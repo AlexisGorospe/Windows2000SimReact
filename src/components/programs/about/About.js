@@ -3,7 +3,6 @@ import React, {useState} from "react";
 import Banner from "./img/banner.png"
 
 function About(props){
-
     const [about_icon, setAbout_icon] = useState(props.about_icon);
     const [about_programName, setAbout_programName] = useState(props.about_programName);
 
@@ -11,6 +10,10 @@ function About(props){
 
     if (about_programName === " "){
         setAbout_programName("Windows")
+    }
+
+    const sendDataToParent=()=>{
+        props.onDataFromProgram(false)
     }
 
 
@@ -33,6 +36,7 @@ function About(props){
                     <p>Physical memory available to Windows: idk i'm not a real about window</p>
                 </div>
             </div>
+            <button className={"msg_button"} onClick={sendDataToParent}>OK</button>
 
         </div>
     )

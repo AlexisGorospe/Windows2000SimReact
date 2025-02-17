@@ -45,6 +45,7 @@ import "./components/programs/about/style.css"
 
 //stuff you will seein every program lmao
 import "./assets/style/in_programs/style_menubar.css"
+import "./assets/style/in_programs/style_button.css"
 
 //sounds
 import snd_chimes from "./assets/sounds/chimes.wav"
