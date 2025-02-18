@@ -1,8 +1,14 @@
 .msg_button{
-    background-color: #D3CFC7;
+    background-image: url("./img/button_background.png");
     border-color: black;
     border-style: solid;
     border-width: 1px;
     width: 73px;
     height: 21px;
+
+    font-size: 18px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

@@ -33,16 +33,14 @@ h1, h2, h3, h4 ,h5{
 }
 
 
-.text_regular{
-  font-size: normal;
+button{
+
 }
 
 .text_bold{
   font-family: "tahoma_8px_bold";
   font-size: small;
 }
-
-
 
 #test_button{
   position: fixed;
