@@ -80,7 +80,7 @@ function Window(props){
     }
 
     return(
-        <Rnd className={"window"} default={{x: 30, y: 30, width: 300, height: 200, minHeight: {max_height}, minWidth: {max_width}}} dragHandleClassName={"titlebar"}>
+        <Rnd className={"window"} default={{x: 30, y: 30, width: 416, height: 305, minHeight: {max_height}, minWidth: {max_width}}} dragHandleClassName={"titlebar"}>
             <div className={"titlebar"}>
                 <div className={"titlebar_left"}>
                     <img src={iconList[program]} width={"16px"} height={"16px"} />

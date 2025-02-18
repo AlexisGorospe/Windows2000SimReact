@@ -183,7 +183,7 @@ const App = () => {
                     <img src={ico_msg_exclamation}/>
                     <p>{"winver.exe"}</p>
                 </button>
-                {}
+                
                 {/*
                 <button className={"desktop_icon"} onDoubleClick={this.createNewWindow("Untitled - Notepad","internet_explorer", "notepad")}>
                     <div className={"notepad"}/>
