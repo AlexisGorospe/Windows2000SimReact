@@ -1,4 +1,8 @@
 .msg_button{
     background-color: #D3CFC7;
     border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    width: 73px;
+    height: 21px;
 }
