@@ -24,9 +24,9 @@ function Message(props){
             <img className={"icon_image"} src={icon}/>
             <p>{text}</p>
             <div className={"button_row"}>
-                {buttons.map*(button => {
+                {buttons.map((button, index) => {
                     return (
-                        <button className={"msg_button"} onClick={sendDataToParent}>OK</button>
+                        <button key={index} className={"msg_button"} onClick={sendDataToParent}>{button[index]}</button>
                     )
                 })}
             </div>

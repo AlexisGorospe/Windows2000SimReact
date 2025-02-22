@@ -219,7 +219,7 @@ const App = () => {
                     <div id={"notificationIcons"}>
 
                     </div>
-                    <p id={"taskbar_clock"} onClick={() => {createNewMessageWindow("Message Test", 0, "this is a test message", [["test", "buttons"]])}}><Clock format={"HH:mm"} ticking={true}/></p>
+                    <p id={"taskbar_clock"} onClick={() => {createNewMessageWindow("Not implemented", 0, "Feature unavaliable as i have not implemented it yet", [["test", "buttons"]])}}><Clock format={"HH:mm"} ticking={true}/></p>
                 </div>
 
             </div>
