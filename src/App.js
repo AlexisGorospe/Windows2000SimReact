@@ -28,7 +28,6 @@ import "./assets/style/style_taskbar.css"
 
 //Window
 import Window from "./components/windows/Window";
-import "./components/windows/style.css";
 
 //Desktop icons
 import "./assets/style/style_desktopIcons.css"
@@ -91,6 +90,16 @@ const App = () => {
             <Window key={prevWindows.length} titlebar={titlebar} program={program.toString()}/>
         ]);
         console.log(titlebar + program);
+    }
+
+    const createNewMessageWindow = (titlebar, icon, text, buttons) => {
+        setStartMenuOpen(false)
+
+        setWindows((prevWindows) => [
+            ...prevWindows,
+            <Window key={prevWindows.length} titlebar={titlebar} program={0} message_icon={icon} message_text={text} message_buttons={buttons}/>
+        ]);
+        console.log(titlebar);
     }
 
     // Taskbar
@@ -210,7 +219,7 @@ const App = () => {
                     <div id={"notificationIcons"}>
 
                     </div>
-                    <p id={"taskbar_clock"}><Clock format={"HH:mm"} ticking={true}/></p>
+                    <p id={"taskbar_clock"} onClick={() => {createNewMessageWindow("Message Test", 0, "this is a test message", [["test", "buttons"]])}}><Clock format={"HH:mm"} ticking={true}/></p>
                 </div>
 
             </div>

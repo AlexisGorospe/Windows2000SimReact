@@ -9,9 +9,9 @@ function Message(props){
         1: ico_exclamation 
     }
 
-    const [icon, setIcon] = useState(icon_list[props.icon()])
-    const [text, setText] = useState(props.text())
-    const [buttons, setButtons] = useState()
+    const [icon, setIcon] = useState(icon_list[props.message_icon])
+    const [text, setText] = useState(props.message_text)
+    const [buttons, setButtons] = useState(props.message_buttons)
 
     
 
@@ -21,8 +21,8 @@ function Message(props){
 
     return(
         <div className={"message"}>
-            <img className={"icon_image"}/>
-            <p>{icon}</p>
+            <img className={"icon_image"} src={icon}/>
+            <p>{text}</p>
             <div className={"button_row"}>
                 {buttons.map*(button => {
                     return (

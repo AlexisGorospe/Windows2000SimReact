@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { Rnd } from 'react-rnd';
+import "./style.css"
 
 // programs
 import Mspaint from "../programs/mspaint/Mspaint";
@@ -39,6 +40,11 @@ function Window(props){
     const [about_icon, setAbout_icon] = useState(props.about_icon);
     const [about_programName, setAbout_programName] = useState(props.about_program_name);
 
+    //--message box only--
+    const [message_icon, setMessage_icon] = useState(props.message_icon)
+    const [message_text, setMessage_text] = useState(props.message_text)
+    const [message_buttons, setMessage_buttons] = useState(props.message_buttons)
+
     if (!about_programName){
         setAbout_programName(" ")
     }
@@ -48,19 +54,18 @@ function Window(props){
         setIsOpen(data)
     }
 
+    const iconList = {
+        0: ico_iexplore, //placeholder
+        1: ico_mspaint_image,
+        2: ico_notepad,
+        3: ico_notepad, //placeholder
+    };
 
     const programList = {
         0: Message,
         1: Mspaint,
         2: Notepad,
         3: About,
-    };
-
-    const iconList = {
-        0: ico_iexplore, //placeholder
-        1: ico_mspaint_image,
-        2: ico_notepad,
-        3: ico_notepad, //placeholder
     };
 
     const ProgramToRender = programList[props.program];
@@ -100,6 +105,10 @@ function Window(props){
 
             about_icon={iconList[about_icon]} 
             about_programName={about_programName}
+
+            message_icon={message_icon}
+            message_text={message_text}
+            message_buttons={message_buttons}
             
             />
         </Rnd>
