@@ -5,6 +5,7 @@ import { Rnd } from 'react-rnd';
 import Mspaint from "../programs/mspaint/Mspaint";
 import Notepad from "../programs/notepad/Notepad";
 import About from "../programs/about/About";
+import Message from "../programs/message/Message";
 
 // icons
 import ico_iexplore from "../../assets/img/icons/internet_explorer/internet_explorer.ico"
@@ -49,12 +50,14 @@ function Window(props){
 
 
     const programList = {
+        0: Message,
         1: Mspaint,
         2: Notepad,
         3: About,
     };
 
     const iconList = {
+        0: ico_iexplore, //placeholder
         1: ico_mspaint_image,
         2: ico_notepad,
         3: ico_notepad, //placeholder

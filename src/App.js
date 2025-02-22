@@ -210,7 +210,7 @@ const App = () => {
                     <div id={"notificationIcons"}>
 
                     </div>
-                    <p id={"start_clock"}><Clock format={"HH:mm"} ticking={true}/></p>
+                    <p id={"taskbar_clock"}><Clock format={"HH:mm"} ticking={true}/></p>
                 </div>
 
             </div>

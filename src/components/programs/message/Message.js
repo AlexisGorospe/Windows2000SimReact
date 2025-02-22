@@ -4,10 +4,16 @@ import ico_exclamation from "../../../assets/img/icons/msg/msg_exclamation.ico"
 import ico_x from "../../../assets/img/icons/msg/msg_exclamation.ico"
 
 function Message(props){
+    const icon_list = {
+        0: ico_x,
+        1: ico_exclamation 
+    }
 
-    const [icon, setIcon] = useState(props.icon())
+    const [icon, setIcon] = useState(icon_list[props.icon()])
     const [text, setText] = useState(props.text())
     const [buttons, setButtons] = useState()
+
+    
 
     const sendDataToParent=()=>{
         props.onDataFromProgram(false)
@@ -27,3 +33,5 @@ function Message(props){
         </div>
     )
 }
+
+export default Message;
