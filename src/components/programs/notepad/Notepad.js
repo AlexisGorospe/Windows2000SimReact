@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Window from "../../windows/Window.js";
 import about from "../about/About";
+import "./style.css"
 
 function Notepad(props) {
     // file

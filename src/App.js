@@ -33,16 +33,6 @@ import "./components/windows/style.css";
 //Desktop icons
 import "./assets/style/style_desktopIcons.css"
 
-//Programs
-import Mspaint from "./components/programs/mspaint/Mspaint";
-import "./components/programs/mspaint/style.css";
-
-import Notepad from "./components/programs/notepad/Notepad";
-import "./components/programs/notepad/style.css";
-
-import About from "./components/programs/about/About"
-import "./components/programs/about/style.css"
-
 //stuff you will seein every program lmao
 import "./assets/style/in_programs/style_menubar.css"
 import "./assets/style/in_programs/style_button.css"

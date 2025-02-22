@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 
 import Banner from "./img/banner.png"
+import "./style.css"
 
 function About(props){
     const [about_icon, setAbout_icon] = useState(props.about_icon);
