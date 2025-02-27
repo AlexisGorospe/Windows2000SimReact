@@ -24,18 +24,36 @@ import ico_mspaint_image from "../../assets/img/icons/mspaint/mspaint_image.ico"
 import ico_notepad from "../../assets/img/icons/notepad/notepad.ico"
 import { use } from "react";
 
-function Window(props){
+function Window(props){    
+    const iconList = {
+        0: ico_iexplore, //placeholder
+        1: ico_mspaint_image,
+        2: ico_notepad,
+        3: ico_notepad, //placeholder
+    };
+
+    const programList = {
+        0: [Message, [200, 100]],
+        1: [Mspaint, [400, 400]],
+        2: [Notepad, [300, 300]],
+        3: [About, [416, 305]],
+    };
+    
     const [titlebar, setTitlebar] = useState(props.titlebar);
     const [window_id, setWindow_id] = useState(props.window_id);
+
+    const [program, setProgram] = useState(props.program);
 
     const [max_height, setMaxHeight] = useState(props.max_height);
     const [max_width, setMaxWidth] = useState(props.max_width);
 
+    const [width, setWidth] = useState(props.width)
+    const [height, setHeight] = useState(props.height)
 
     const [isOpen, setIsOpen] = useState(true);
     const [isVisible, setIsVisible] = useState(true);
 
-    const [program, setProgram] = useState(props.program);
+
 
     //--about window only--
     const [about_icon, setAbout_icon] = useState(props.about_icon);
@@ -56,21 +74,8 @@ function Window(props){
         setIsOpen(data)
     }
 
-    const iconList = {
-        0: ico_iexplore, //placeholder
-        1: ico_mspaint_image,
-        2: ico_notepad,
-        3: ico_notepad, //placeholder
-    };
-
-    const programList = {
-        0: Message,
-        1: Mspaint,
-        2: Notepad,
-        3: About,
-    };
-
-    const ProgramToRender = programList[props.program];
+    const ProgramToRender = programList[props.program][0];
+    const defaultDimensions = programList[props.program][1];
     console.log(program);
 
     function closeProgram(){
@@ -90,7 +95,7 @@ function Window(props){
     }
 
     return(
-        <Rnd className={"window"} default={{x: 100, y: 100, width: 416, height: 305, minHeight: {max_height}, minWidth: {max_width}}} dragHandleClassName={"titlebar"}>
+        <Rnd className={"window"} default={{x: 200, y: 100, width: defaultDimensions[0], height: defaultDimensions[1], minHeight: {max_height}, minWidth: {max_width}}} dragHandleClassName={"titlebar"}>
             <div className={"titlebar"}>
                 <div className={"titlebar_left"}>
                     <img src={iconList[program]} width={"16px"} height={"16px"} />
