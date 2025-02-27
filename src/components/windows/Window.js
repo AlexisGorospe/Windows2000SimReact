@@ -33,7 +33,7 @@ function Window(props){
     };
 
     const programList = {
-        0: [Message, [200, 100]],
+        0: [Message, [205, 120]],
         1: [Mspaint, [400, 400]],
         2: [Notepad, [300, 300]],
         3: [About, [416, 305]],

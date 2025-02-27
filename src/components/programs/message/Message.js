@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import useSound from 'use-sound'; //i wanna play sounds
+import "./style.css"
 
 import ico_exclamation from "../../../assets/img/icons/msg/msg_exclamation.ico"
 import ico_x from "../../../assets/img/icons/msg/msg_exclamation.ico"
@@ -41,8 +42,10 @@ function Message(props){
 
     return(
         <div className={"message"}>
-            <img className={"icon_image"} src={icon}/>
-            <p>{text}</p>
+            <div className={"icon_and_text"}>
+                <img className={"icon_image"} src={icon}/>
+                <p>{text}</p>
+            </div>
             <div className={"button_row"}>
                 {buttons.map((button, index) => {
                     return (
