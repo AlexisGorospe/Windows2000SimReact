@@ -39,6 +39,7 @@ import "./assets/style/in_programs/style_button.css"
 //sounds
 import snd_chimes from "./assets/sounds/chimes.wav"
 import snd_chord from "./assets/sounds/chord.wav"
+import snd_ding from "./assets/sounds/ding.wav"
 import snd_logon from "./assets/sounds/logon.wav"
 import snd_logoff from "./assets/sounds/logoff.wav"
 

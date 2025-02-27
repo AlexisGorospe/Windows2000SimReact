@@ -22,6 +22,7 @@ import ico_mspaint from "../../assets/img/icons/mspaint/mspaint.ico"
 import ico_mspaint_image from "../../assets/img/icons/mspaint/mspaint_image.ico"
 
 import ico_notepad from "../../assets/img/icons/notepad/notepad.ico"
+import { use } from "react";
 
 function Window(props){
     const [titlebar, setTitlebar] = useState(props.titlebar);
@@ -44,6 +45,7 @@ function Window(props){
     const [message_icon, setMessage_icon] = useState(props.message_icon)
     const [message_text, setMessage_text] = useState(props.message_text)
     const [message_buttons, setMessage_buttons] = useState(props.message_buttons)
+    const [message_sound, setMessage_sound] = useState(props.message_sound)
 
     if (!about_programName){
         setAbout_programName(" ")
@@ -88,7 +90,7 @@ function Window(props){
     }
 
     return(
-        <Rnd className={"window"} default={{x: 30, y: 30, width: 416, height: 305, minHeight: {max_height}, minWidth: {max_width}}} dragHandleClassName={"titlebar"}>
+        <Rnd className={"window"} default={{x: 100, y: 100, width: 416, height: 305, minHeight: {max_height}, minWidth: {max_width}}} dragHandleClassName={"titlebar"}>
             <div className={"titlebar"}>
                 <div className={"titlebar_left"}>
                     <img src={iconList[program]} width={"16px"} height={"16px"} />
