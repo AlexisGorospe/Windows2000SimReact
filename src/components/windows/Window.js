@@ -32,11 +32,28 @@ function Window(props){
         3: ico_notepad, //placeholder
     };
 
+    //[program, [width, height], show min and max]
     const programList = {
-        0: [Message, [205, 120]],
-        1: [Mspaint, [400, 400]],
-        2: [Notepad, [300, 300]],
-        3: [About, [416, 305]],
+        0: {
+            program: Message,
+            dimensions: [205, 120],
+            showMinAndMax: false
+        },
+        1: {
+            program: Mspaint,
+            dimensions: [400, 400],
+            showMinAndMax: true
+        },
+        2: {
+            program: Notepad,
+            dimensions: [300, 300],
+            showMinAndMax: true
+        },
+        3: {
+            program: About,
+            dimensions: [416, 305],
+            showMinAndMax: false
+        }
     };
     
     const [titlebar, setTitlebar] = useState(props.titlebar);
@@ -52,7 +69,6 @@ function Window(props){
 
     const [isOpen, setIsOpen] = useState(true);
     const [isVisible, setIsVisible] = useState(true);
-
 
 
     //--about window only--
@@ -74,8 +90,7 @@ function Window(props){
         setIsOpen(data)
     }
 
-    const ProgramToRender = programList[props.program][0];
-    const defaultDimensions = programList[props.program][1];
+    const ProgramToRender = programList[props.program].program;
     console.log(program);
 
     function closeProgram(){
@@ -95,15 +110,15 @@ function Window(props){
     }
 
     return(
-        <Rnd className={"window"} default={{x: 200, y: 100, width: defaultDimensions[0], height: defaultDimensions[1], minHeight: {max_height}, minWidth: {max_width}}} dragHandleClassName={"titlebar"}>
+        <Rnd className={"window"} default={{x: 200, y: 100, width: programList[props.program].dimensions[0], height: programList[props.program].dimensions[1], minHeight: {max_height}, minWidth: {max_width}}} dragHandleClassName={"titlebar"}>
             <div className={"titlebar"}>
                 <div className={"titlebar_left"}>
                     <img src={iconList[program]} width={"16px"} height={"16px"} />
                     <p className={"text_bold"}>{titlebar + " " +  about_programName}</p>
                 </div>
                 <div className={"buttons"}>
-                    <button className={"window_button_minimize"}></button>
-                    <button className={"window_button_maximize"}></button>
+                    <button className={`window_button_minimize ${programList[props.program].showMinAndMax ? "" : "hidden"}`}></button>
+                    <button className={`window_button_maximize ${programList[props.program].showMinAndMax ? "" : "hidden"}`}></button>
                     <button className={"window_button_close"} onClick={closeProgram}></button>
                 </div>
             </div>

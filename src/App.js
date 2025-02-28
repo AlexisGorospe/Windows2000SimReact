@@ -88,7 +88,11 @@ const App = () => {
 
         setWindows((prevWindows) => [
             ...prevWindows,
-            <Window key={prevWindows.length} titlebar={titlebar} program={program.toString()}/>
+            <Window
+                key={prevWindows.length}
+                titlebar={titlebar}
+                program={program.toString()}
+            />
         ]);
         console.log(titlebar + program);
     }
@@ -98,7 +102,15 @@ const App = () => {
 
         setWindows((prevWindows) => [
             ...prevWindows,
-            <Window key={prevWindows.length} titlebar={titlebar} program={0} message_icon={icon} message_text={text} message_buttons={buttons}/>
+            <Window
+                key={prevWindows.length}
+                titlebar={titlebar}
+                program={0}
+
+                message_icon={icon}
+                message_text={text}
+                message_buttons={buttons}
+            />
         ]);
         console.log(titlebar);
     }
@@ -108,30 +120,6 @@ const App = () => {
         setStartMenuOpen(!startMenuOpen);
         console.log(startMenuOpen);
     }
-
-    // Desktop icons
-    /*
-    const initializeDesktopIcons = () => {
-        
-        for (var icon in desktopIconList){
-            setDesktopIcons((prevDesktopIcons) => [
-                ...prevDesktopIcons,
-                <button className={"desktop_icon"} onDoubleClick={() => {createNewWindow("Untitled - Notepad", 2)}}>
-                    <img src={ico_notepad}/>
-                    <p>{"Notepad"}</p>
-                </button>
-    
-            ])
-        }
-    }
-        
-
-    initializeDesktopIcons()
-    */
-
-    //sounds
-    
-
 
     const testfunction = () => {
         console.log("it works");
@@ -151,20 +139,6 @@ const App = () => {
             </div>
 
             <div id={"desktop_icon_grid"}>
-                {/*
-                <DesktopIcon
-                    className={"internet_explorer"}
-                    name={"Internet Explorer"}
-                    program={"iexplore"}
-                    createNewWindow={createNewWindow}
-                />
-                <DesktopIcon
-                    className={"recycle_bin"}
-                    name={"Recycle Bin"}
-                    program={"recyclebin"}
-                    createNewWindow={createNewWindow}
-                />
-                */}
                 <button className={"desktop_icon"} onDoubleClick={() => {
                     createNewWindow("Untitled - Notepad", 2)
                 }}>
@@ -183,13 +157,6 @@ const App = () => {
                     <img src={ico_msg_exclamation}/>
                     <p>{"winver.exe"}</p>
                 </button>
-                
-                {/*
-                <button className={"desktop_icon"} onDoubleClick={this.createNewWindow("Untitled - Notepad","internet_explorer", "notepad")}>
-                    <div className={"notepad"}/>
-                    <p>{Notepad}</p>
-                </button>
-                */}
             </div>
 
             <div id={"taskbar"}>
@@ -197,18 +164,6 @@ const App = () => {
                     <button id={"startButton"} onClick={startClick} className={startMenuOpen ? 'pressed' : ''}/>
                     <div className={"taskbar_separator"}></div>
                     <div id={"quickLaunch"}>
-                        {/*
-                        {
-                            this.state.quickStartPrograms.map((program) => {
-                                return (
-                                    <div className={"quickStartProgram"} >
-
-                                    </div>
-                                )
-                            })
-                        }
-                        */}
-
                         <img src={ico_iexplore} className={"quickLaunchProgram"} onClick={createNewWindow}/>
                     </div>
                     <div className={"taskbar_separator"}></div>

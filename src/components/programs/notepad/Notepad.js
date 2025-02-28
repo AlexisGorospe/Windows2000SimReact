@@ -3,6 +3,8 @@ import Window from "../../windows/Window.js";
 import about from "../about/About";
 import "./style.css"
 
+//import the fonts later
+
 function Notepad(props) {
     // file
     const [fileDDM, setFileDDM] = useState(false)

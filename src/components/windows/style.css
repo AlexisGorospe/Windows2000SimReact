@@ -63,8 +63,16 @@
                 background-image: url("./img/window_minimize.png");
             }
 
+            .window_button_minimize.hidden{
+                visibility: hidden;
+            }
+
             .window_button_maximize{
                 background-image: url("./img/window_maximize.png");
+            }
+
+            .window_button_maximize.hidden{
+                visibility: hidden;
             }
 
             .window_button_close{
