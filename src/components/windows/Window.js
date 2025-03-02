@@ -67,7 +67,7 @@ function Window(props){
     const [width, setWidth] = useState(props.width)
     const [height, setHeight] = useState(props.height)
 
-    const defaultWindowPosition = [window.screen.width/2 - height/2, window.screen.height/2 - height/2];
+    const defaultWindowPosition = [window.screen.width/2 - width/2, window.screen.height/2 - height/2];
 
     const [isOpen, setIsOpen] = useState(true);
     const [isVisible, setIsVisible] = useState(true);
@@ -112,7 +112,7 @@ function Window(props){
     }
 
     return(
-        <Rnd className={"window"} default={{x: defaultWindowPosition[0], y: defaultWindowPosition[1], width: programList[props.program].dimensions[0], height: programList[props.program].dimensions[1], minHeight: {max_height}, minWidth: {max_width}}} dragHandleClassName={"titlebar"}>
+        <Rnd className={"window"} default={{x: 100, y: 300, width: programList[props.program].dimensions[0], height: programList[props.program].dimensions[1], minHeight: {max_height}, minWidth: {max_width}}} dragHandleClassName={"titlebar"}>
             <div className={"titlebar"}>
                 <div className={"titlebar_left"}>
                     <img src={iconList[program]} width={"16px"} height={"16px"} />
