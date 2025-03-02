@@ -1,11 +1,107 @@
 import React, {useState} from "react";
 import "./style.css"
 
+import ico_button_select_free from "./img/icons/buttons/select_free.png"
+import ico_button_select_rect from "./img/icons/buttons/select_rect.png"
+import ico_button_eraser from "./img/icons/buttons/eraser.png"
+import ico_button_fill_bucket from "./img/icons/buttons/fill_bucket.png"
+import ico_button_eyedropper from "./img/icons/buttons/eyedropper.png"
+import ico_button_magnifying_glass from "./img/icons/buttons/magnifying_glass.png"
+import ico_button_pencil from "./img/icons/buttons/pencil.png"
+import ico_button_paintbrush from "./img/icons/buttons/paintbrush.png"
+import ico_button_spray_tool from "./img/icons/buttons/spray_tool.png"
+import ico_button_text from "./img/icons/buttons/text.png"
+import ico_button_line_straight from "./img/icons/buttons/line_straight.png"
+import ico_button_line_free from "./img/icons/buttons/line_free.png"
+import ico_button_shape_free from "./img/icons/buttons/shape_free.png"
+import ico_button_shape_rect from "./img/icons/buttons/shape_rect.png"
+import ico_button_shape_circle from "./img/icons/buttons/shape_circle.png"
+import ico_button_shape_rect_round from "./img/icons/buttons/shape_rect_round.png"
+
+
+
 function Mspaint(props) {
+    const buttons = [ //i don't know why it doesn't work for objects
+        {
+            icon: ico_button_select_free,
+            funct: blank,
+        },
+        {
+            icon: ico_button_select_rect,
+            funct: blank
+        },
+        {
+            icon: ico_button_eraser,
+            funct: blank,
+        },
+        {
+            icon: ico_button_fill_bucket,
+            funct: blank
+        },
+        {
+            icon: ico_button_eyedropper,
+            funct: blank,
+        },
+        {
+            icon: ico_button_magnifying_glass,
+            funct: blank
+        },
+        {
+            icon: ico_button_pencil,
+            funct: blank,
+        },
+        {
+            icon: ico_button_paintbrush,
+            funct: blank
+        },
+        {
+            icon: ico_button_spray_tool,
+            funct: blank
+        },
+        {
+            icon: ico_button_text,
+            funct: blank,
+        },
+        {
+            icon: ico_button_line_straight,
+            funct: blank
+        },
+        {
+            icon: ico_button_line_free,
+            funct: blank,
+        },
+        {
+            icon: ico_button_shape_free,
+            funct: blank
+        },
+        {
+            icon: ico_button_shape_rect,
+            funct: blank,
+        },
+        {
+            icon: ico_button_shape_circle,
+            funct: blank
+        },
+        {
+            icon: ico_button_shape_rect_round,
+            funct: blank
+        }
+    ]
+
+    function blank(){
+        // exists fro error prevention
+    }
+
     return (
         <div className={"program_mspaint"}>
             <aside>
-                
+                <div className={"buttons"}>
+                    {buttons.map((button) => (
+                        <button onClick={button.funct} key={button.name}>
+                            <img src={button.icon}/>
+                        </button>
+                    ))}
+                </div>
             </aside>
         </div>
     );
