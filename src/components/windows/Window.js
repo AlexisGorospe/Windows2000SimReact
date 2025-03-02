@@ -24,7 +24,7 @@ import ico_mspaint_image from "../../assets/img/icons/mspaint/mspaint_image.ico"
 import ico_notepad from "../../assets/img/icons/notepad/notepad.ico"
 import { use } from "react";
 
-function Window(props){    
+function Window(props){
     const iconList = {
         0: ico_iexplore, //placeholder
         1: ico_mspaint_image,
@@ -66,6 +66,8 @@ function Window(props){
 
     const [width, setWidth] = useState(props.width)
     const [height, setHeight] = useState(props.height)
+
+    const defaultWindowPosition = [window.screen.width/2 - height/2, window.screen.height/2 - height/2];
 
     const [isOpen, setIsOpen] = useState(true);
     const [isVisible, setIsVisible] = useState(true);
@@ -110,7 +112,7 @@ function Window(props){
     }
 
     return(
-        <Rnd className={"window"} default={{x: 200, y: 100, width: programList[props.program].dimensions[0], height: programList[props.program].dimensions[1], minHeight: {max_height}, minWidth: {max_width}}} dragHandleClassName={"titlebar"}>
+        <Rnd className={"window"} default={{x: defaultWindowPosition[0], y: defaultWindowPosition[1], width: programList[props.program].dimensions[0], height: programList[props.program].dimensions[1], minHeight: {max_height}, minWidth: {max_width}}} dragHandleClassName={"titlebar"}>
             <div className={"titlebar"}>
                 <div className={"titlebar_left"}>
                     <img src={iconList[program]} width={"16px"} height={"16px"} />
