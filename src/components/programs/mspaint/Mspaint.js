@@ -176,6 +176,10 @@ function Mspaint(props) {
                     ))}
                 </div>
             </aside>
+
+            {/*
+            note to self go here later
+            https://medium.com/@pdx.lucasm/canvas-with-react-js-32e133c05258*/}
         </div>
     );
 
