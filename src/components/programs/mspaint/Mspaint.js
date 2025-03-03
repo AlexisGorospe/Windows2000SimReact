@@ -21,6 +21,65 @@ import ico_button_shape_rect_round from "./img/icons/buttons/shape_rect_round.pn
 
 
 function Mspaint(props) {
+    const [fileDDM, setFileDDM] = useState(false)
+    const [editDDM, setEditDDM] = useState(false)
+    const [viewDDM, setViewDDM] = useState(false)
+    const [helpDDM, setHelpDDM] = useState(false)
+
+    const [textAreaContent, setTextAreaContent] =  useState("")
+    const [wordWrap, setWordWrap] = useState(false)
+
+    const [windows , setWindows] = useState([]);
+
+    function handleTextAreaChange(event){
+        setTextAreaContent(event.target.value)
+    }
+
+    function closeDDMs(){
+        setFileDDM(false)
+        setEditDDM(false)
+        setViewDDM(false)
+        setHelpDDM(false)
+    }
+
+    function showFileDDM(){
+        closeDDMs()
+        setFileDDM(!fileDDM)
+        console.log(fileDDM)
+    }
+
+    function file_new(){
+        closeDDMs()
+        setTextAreaContent("")
+    }
+
+    function file_open(){
+        closeDDMs()
+        console.log("this function is supposed to ask the user for a text file they wanna open in this notepad sim")
+
+
+        // let popupWindow = window.open('url','windowName','options') //keeping this comment here because i think it's cool
+    }
+
+    function file_save(){
+        closeDDMs()
+        const blob = new Blob([textAreaContent], {type: "text/plain"})
+        const url = URL.createObjectURL(blob)
+        const link = document.createElement("a")
+        link.href = url
+        link.download = "Untitled.txt"
+        document.body.appendChild(link)
+        link.click()
+
+        document.body.removeChild(link)
+        URL.revokeObjectURL(url)
+
+        // THANK YOU https://www.youtube.com/watch?v=Wn8gR3CSuEc
+    }
+
+
+
+
     const buttons = [ //i don't know why it doesn't work for objects
         {
             icon: ico_button_select_free,
@@ -94,6 +153,20 @@ function Mspaint(props) {
 
     return (
         <div className={"program_mspaint"}>
+            <div className={"menubar"}>
+                {/*https://www.w3schools.com/howto/howto_js_dropdown.asp*/}
+
+                <div className="dropdown">
+                    <button className="dropbtn" onClick={showFileDDM}>File</button>
+                    <div id="myDropdown" className={fileDDM ? 'dropdown-content visible' : 'dropdown-content '}>
+                        <a onClick={"#"}>New</a>
+                        <a onClick={"#"}>Open</a>
+                        <a onClick={"#"}>Save</a>
+                        <a onClick={"#"}>Save As</a>
+                    </div>
+                </div>
+
+            </div>
             <aside>
                 <div className={"buttons"}>
                     {buttons.map((button) => (

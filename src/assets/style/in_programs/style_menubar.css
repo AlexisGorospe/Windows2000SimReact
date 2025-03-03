@@ -1,4 +1,9 @@
 .menubar{
+    border-style: solid;
+    border-width: 0;
+    border-bottom-width: 2px;
+    border-bottom-color: #808080;
+
     .dropbtn{
         cursor: pointer;
     }

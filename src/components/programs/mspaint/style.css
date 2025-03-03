@@ -7,10 +7,35 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(8, 1fr);
+            width: 50px;
+            margin-left: 5px;
+
             button{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
                 padding: 0;
                 margin: 0;
+                width: 24px;
+                height: 25px;
+                border-style: solid;
+                border-width: 2px;
+                border-top-color: white;
+                border-left-color: white;
+                border-right-color: black;
+                border-bottom-color: black;
+                background: #d4d0c8;
             }
+
+            button:active{
+                border-top-color: black;
+                border-left-color: black;
+                border-right-color: white;
+                border-bottom-color: white;
+            }
+
+            /*put the stuff for when it's pressed later*/
         }
     }
 }
