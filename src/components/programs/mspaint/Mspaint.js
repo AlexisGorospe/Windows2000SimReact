@@ -1,5 +1,7 @@
-import React, {useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import "./style.css"
+import MspaintCanvas from "./MspaintCanvas";
+import WhiteScreen from "./white_screen.png"
 
 import ico_button_select_free from "./img/icons/buttons/select_free.png"
 import ico_button_select_rect from "./img/icons/buttons/select_rect.png"
@@ -21,20 +23,29 @@ import ico_button_shape_rect_round from "./img/icons/buttons/shape_rect_round.pn
 
 
 function Mspaint(props) {
+    // the same thing you see in notepad lol
     const [fileDDM, setFileDDM] = useState(false)
     const [editDDM, setEditDDM] = useState(false)
     const [viewDDM, setViewDDM] = useState(false)
     const [helpDDM, setHelpDDM] = useState(false)
-
-    const [textAreaContent, setTextAreaContent] =  useState("")
     const [wordWrap, setWordWrap] = useState(false)
+    const [windows, setWindows] = useState([]);
 
-    const [windows , setWindows] = useState([]);
+    const [img, setImg] = useState(props.img ? props.img : WhiteScreen)
 
-    function handleTextAreaChange(event){
-        setTextAreaContent(event.target.value)
-    }
+    // stuff from https://medium.com/@subhadipjana866/drawing-on-an-image-in-a-react-canvas-9cc47d38e183
+    const canvasRef = useRef(null);
+    const [ctx, setCtx] = useState(null);
+    const [isDrawing, setIsDrawing] = useState(false);
+    const [points, setPoints] = useState([]);
+    const [allStrokes, setAllStrokes] = useState([]);
+    const [currentPoints, setCurrentPoints] = useState([]);
+    const lastPosRef = useRef({ x: 0, y: 0 });
+    const [penColor, setPenColor] = useState("blue");
+    const [penWidth, setPenWidth] = useState(5);
+    const [originalImageData, setOriginalImageData] = useState(null);
 
+    // --file drop down menu---
     function closeDDMs(){
         setFileDDM(false)
         setEditDDM(false)
@@ -50,7 +61,7 @@ function Mspaint(props) {
 
     function file_new(){
         closeDDMs()
-        setTextAreaContent("")
+        // setTextAreaContent("")
     }
 
     function file_open(){
@@ -62,6 +73,8 @@ function Mspaint(props) {
     }
 
     function file_save(){
+
+        /*
         closeDDMs()
         const blob = new Blob([textAreaContent], {type: "text/plain"})
         const url = URL.createObjectURL(blob)
@@ -74,8 +87,92 @@ function Mspaint(props) {
         document.body.removeChild(link)
         URL.revokeObjectURL(url)
 
+        */
         // THANK YOU https://www.youtube.com/watch?v=Wn8gR3CSuEc
     }
+
+    // stuff from https://medium.com/@subhadipjana866/drawing-on-an-image-in-a-react-canvas-9cc47d38e183
+     const loadImageCanvas = (path) => {
+            const canvas = canvasRef.current;
+            const context = canvas.getContext("2d");
+            setCtx(context);
+            
+            const image = new Image();
+            image.crossOrigin = "anonymous";
+            image.src = path;
+    
+            image.onload = () => {
+                canvas.width = image.width;
+                canvas.height = image.height;
+                context.drawImage(image, 0, 0);
+                const baseImageData = canvas.toDataURL("image/png");
+                setOriginalImageData(baseImageData);
+            };
+        };
+    
+        const getCanvasCoords = (e) => {
+            let clientX, clientY;
+            if (e.touches && e.touches.length > 0) {
+                clientX = e.touches[0].clientX;
+                clientY = e.touches[0].clientY;
+            } else {
+                clientX = e.clientX;
+                clientY = e.clientY;
+            }
+            const canvas = canvasRef.current;
+            const rect = canvas.getBoundingClientRect();
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+    
+            return {
+                x: (clientX - rect.left) * scaleX,
+                y: (clientY - rect.top) * scaleY,
+            };
+        };
+    
+        const handlePointerDown = (e) => {
+            e.preventDefault();
+            if (!ctx) return;
+            setIsDrawing(true);
+            const { x, y } = getCanvasCoords(e);
+            lastPosRef.current = { x, y };
+        };
+    
+        const handlePointerMove = (e) => {
+            e.preventDefault();
+            if (!ctx || !isDrawing) return;
+            
+            const { x, y } = getCanvasCoords(e);
+            setCurrentPoints((prev) => [...prev, { x, y }]);
+    
+            const prevPoints = currentPoints;
+            if (prevPoints.length < 1) return;
+    
+            const last = prevPoints[prevPoints.length - 1];
+    
+            ctx.beginPath();
+            ctx.moveTo(last.x, last.y);
+            ctx.lineTo(x, y);
+            ctx.strokeStyle = penColor;
+            ctx.lineWidth = penWidth;
+            ctx.lineCap = "round";
+            ctx.lineJoin = "round";
+            ctx.globalCompositeOperation = "source-over";
+            ctx.stroke();
+        };
+    
+        const handlePointerUp = (e) => {
+            e.preventDefault();
+            setIsDrawing(false);
+            setAllStrokes((prev) => [...prev, currentPoints]);
+            setCurrentPoints([]);
+        };
+    
+        useEffect(() => {
+            if (img) {
+                loadImageCanvas(img);
+            }
+        }, [img]);
 
 
 
@@ -177,11 +274,30 @@ function Mspaint(props) {
                 </div>
             </aside>
 
+            <canvas
+            ref={canvasRef}
+            style={{
+                border: "1px solid black",
+                cursor: "crosshair",
+                width: "100%",
+                height: "auto",
+                touchAction: "none",
+            }}
+            onMouseDown={handlePointerDown}
+            onMouseMove={handlePointerMove}
+            onMouseUp={handlePointerUp}
+            onTouchStart={handlePointerDown}
+            onTouchMove={handlePointerMove}
+            onTouchEnd={handlePointerUp}
+        />
+
             {/*
             note to self go here later
             https://medium.com/@pdx.lucasm/canvas-with-react-js-32e133c05258*/}
         </div>
     );
+
+
 
 }
 
