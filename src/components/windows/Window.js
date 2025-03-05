@@ -41,7 +41,7 @@ function Window(props){
         },
         1: {
             program: Mspaint,
-            dimensions: [400, 400],
+            dimensions: [700, 700],
             showMinAndMax: true
         },
         2: {

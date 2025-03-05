@@ -264,39 +264,41 @@ function Mspaint(props) {
                 </div>
 
             </div>
-            <aside>
-                <div className={"buttons"}>
-                    {buttons.map((button) => (
-                        <button onClick={button.funct} key={button.name}>
-                            <img src={button.icon}/>
-                        </button>
-                    ))}
-                </div>
-            </aside>
+            <main>
+                <aside>
+                    <div className={"buttons"}>
+                        {buttons.map((button) => (
+                            <button onClick={button.funct} key={button.name}>
+                                <img src={button.icon}/>
+                            </button>
+                        ))}
+                    </div>
+                </aside>
 
-            <canvas
-            ref={canvasRef}
-            style={{
-                border: "1px solid black",
-                cursor: "crosshair",
-                width: "100%",
-                height: "auto",
-                touchAction: "none",
-            }}
-            onMouseDown={handlePointerDown}
-            onMouseMove={handlePointerMove}
-            onMouseUp={handlePointerUp}
-            onTouchStart={handlePointerDown}
-            onTouchMove={handlePointerMove}
-            onTouchEnd={handlePointerUp}
-        />
+                <canvas
+                    ref={canvasRef}
+                    style={{
+                        border: "1px solid black",
+                        cursor: "crosshair",
+                        width: "500px",
+                        height: "500px",
+                        touchAction: "none",
+                    }}
+                    onMouseDown={handlePointerDown}
+                    onMouseMove={handlePointerMove}
+                    onMouseUp={handlePointerUp}
+                    onTouchStart={handlePointerDown}
+                    onTouchMove={handlePointerMove}
+                    onTouchEnd={handlePointerUp}
+                />
+            </main>
+
 
             {/*
             note to self go here later
             https://medium.com/@pdx.lucasm/canvas-with-react-js-32e133c05258*/}
         </div>
     );
-
 
 
 }
