@@ -292,12 +292,23 @@ function Mspaint(props) {
                 />
             </main>
 
+            <footer>
+                <div className={"selected_colors"}>
+                    <div className={"primary"}></div>
+                    <div className={"secondary"}></div>
+                </div>
+
+                <div className={"colors"}> {/*this will be a grid that has all the colors*/}
+
+                </div>
+            </footer>
+
 
             {/*
             note to self go here later
             https://medium.com/@pdx.lucasm/canvas-with-react-js-32e133c05258*/}
         </div>
-    );
+);
 
 
 }
