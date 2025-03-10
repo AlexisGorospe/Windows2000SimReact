@@ -44,6 +44,17 @@ function Mspaint(props) {
     const [penWidth, setPenWidth] = useState(5);
     const [originalImageData, setOriginalImageData] = useState(null);
 
+    const [defaultColors, setDefaultColors] = useState([
+        "000000",
+        "808080",
+        "800000",
+        "808000",
+        "008000",
+        "008080",
+    ]);
+
+    console.log(defaultColors)
+
     // --file drop down menu---
     function closeDDMs(){
         setFileDDM(false)
@@ -72,7 +83,7 @@ function Mspaint(props) {
     }
 
     function file_save(){
-
+        // make it so that it saves the image to your computer
         /*
         closeDDMs()
         const blob = new Blob([textAreaContent], {type: "text/plain"})
@@ -293,13 +304,15 @@ function Mspaint(props) {
             </main>
 
             <footer>
-                <div className={"selected_colors"}>
+                <div className={"selected_colours"}>
                     <div className={"primary"}></div>
                     <div className={"secondary"}></div>
                 </div>
 
-                <div className={"colors"}> {/*this will be a grid that has all the colors*/}
-
+                <div className={"colours"}> {/*this will be a grid that has all the colours*/}
+                    {defaultColors.map((col) => (
+                        <button>colour</button>
+                    ))}
                 </div>
             </footer>
 
