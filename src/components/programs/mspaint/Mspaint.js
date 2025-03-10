@@ -45,38 +45,38 @@ function Mspaint(props) {
     const [originalImageData, setOriginalImageData] = useState(null);
 
     const [defaultColors, setDefaultColors] = useState([
-        "000000",
-        "808080",
-        "800000",
-        "808000",
-        "008000",
-        "008080",
-        "008080",
-        "000080",
-        "800080",
-        "808040",
-        "004040",
-        "0080ff",
-        "004080",
-        "4000ff",
-        "804000",
-        "FFFFFF",
-        "c0c0c0",
-        "ff0000",
-        "ffff00",
-        "00ff00",
-        "00ffff",
-        "0000ff",
-        "ff00ff",
-        "ffff80",
-        "00ff80",
-        "80ffff",
-        "8080ff",
-        "ff0080",
-        "ff8040"
+        "#000000",
+        "#808080",
+        "#800000",
+        "#808000",
+        "#008000",
+        "#008080",
+        "#008080",
+        "#000080",
+        "#800080",
+        "#808040",
+        "#004040",
+        "#0080ff",
+        "#004080",
+        "#4000ff",
+        "#804000",
+        "#FFFFFF",
+        "#c0c0c0",
+        "#ff0000",
+        "#ffff00",
+        "#00ff00",
+        "#00ffff",
+        "#0000ff",
+        "#ff00ff",
+        "#ffff80",
+        "#00ff80",
+        "#80ffff",
+        "#8080ff",
+        "#ff0080",
+        "#ff8040"
     ]);
 
-    console.log(defaultColors)
+    console.log(defaultColors.length)
 
     // --file drop down menu---
     function closeDDMs(){
@@ -334,7 +334,7 @@ function Mspaint(props) {
 
                 <div className={"colours"}> {/*this will be a grid that has all the colours*/}
                     {defaultColors.map((col) => (
-                        <button>colour</button>
+                        <button style={{backgroundColor: `${col}`}}>{col}</button>
                     ))}
                 </div>
             </footer>
