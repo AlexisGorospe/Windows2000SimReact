@@ -51,6 +51,14 @@ function Mspaint(props) {
         "808000",
         "008000",
         "008080",
+        "008080",
+        "000080",
+        "800080",
+        "808040",
+        "004040",
+        "0080ff",
+
+
     ]);
 
     console.log(defaultColors)
@@ -315,11 +323,6 @@ function Mspaint(props) {
                     ))}
                 </div>
             </footer>
-
-
-            {/*
-            note to self go here later
-            https://medium.com/@pdx.lucasm/canvas-with-react-js-32e133c05258*/}
         </div>
 );
 
