@@ -62,6 +62,23 @@
             grid-template-areas: 
               ". . . . . . . . . . . . ."
               ". . . . . . . . . . . . ."; 
+
+            button{
+                border-style: solid;
+                border-width: 2px;    
+            
+                border-top-color: white;
+                border-left-color: white;
+                border-right-color: black;
+                border-bottom-color: black;
+            }
+
+            button:active{
+                border-top-color: black;
+                border-left-color: black;
+                border-right-color: white;
+                border-bottom-color: white;
+            }
         }
     }
 }
