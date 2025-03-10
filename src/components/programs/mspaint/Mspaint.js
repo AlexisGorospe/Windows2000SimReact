@@ -1,6 +1,5 @@
 import React, {useEffect, useRef, useState} from "react";
 import "./style.css"
-import MspaintCanvas from "./MspaintCanvas";
 import WhiteScreen from "./white_screen.png"
 
 import ico_button_select_free from "./img/icons/buttons/select_free.png"
