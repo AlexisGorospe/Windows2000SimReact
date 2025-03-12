@@ -2,3 +2,5 @@ to do list:
 - keep working on quick launch
 - list of programs open programs that will appear in the taskbar
 - implement smallest window size and largest window size
+
+- make a webserver part that will be the thing that will host the files for file explorer.
