@@ -343,7 +343,7 @@ function Mspaint(props) {
 
                 <div className={"colours"}> {/*this will be a grid that has all the colours*/}
                     {defaultColors.map((col) => (
-                        <button style={{backgroundColor: `${col}`}}></button>
+                        <button style={{backgroundColor: `${col}`}} onClick={() => {setPrimaryColour(col)}}></button>
                     ))}
                 </div>
             </footer>
