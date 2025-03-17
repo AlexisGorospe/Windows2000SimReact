@@ -157,6 +157,12 @@ const App = () => {
                     <img src={ico_msg_exclamation}/>
                     <p>{"winver.exe"}</p>
                 </button>
+                <button className={"desktop_icon"} onDoubleClick={() => {
+                    createNewWindow("Internet Explorer", 4)
+                }}>
+                    <img src={ico_iexplore}/>
+                    <p>{"Internet Explorer"}</p>
+                </button>
             </div>
 
             <div id={"taskbar"}>

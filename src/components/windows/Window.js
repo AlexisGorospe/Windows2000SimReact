@@ -7,6 +7,7 @@ import Mspaint from "../programs/mspaint/Mspaint";
 import Notepad from "../programs/notepad/Notepad";
 import About from "../programs/about/About";
 import Message from "../programs/message/Message";
+import InternetExplorer from "../programs/internet_explorer/InternetExplorer";
 
 // icons
 import ico_iexplore from "../../assets/img/icons/internet_explorer/internet_explorer.ico"
@@ -24,12 +25,14 @@ import ico_mspaint_image from "../../assets/img/icons/mspaint/mspaint_image.ico"
 import ico_notepad from "../../assets/img/icons/notepad/notepad.ico"
 import { use } from "react";
 
+
 function Window(props){
     const iconList = {
         0: ico_iexplore, //placeholder
         1: ico_mspaint_image,
         2: ico_notepad,
         3: ico_notepad, //placeholder
+        4: ico_iexplore
     };
 
     //[program, [width, height], show min and max]
@@ -53,6 +56,11 @@ function Window(props){
             program: About,
             dimensions: [416, 305],
             showMinAndMax: false
+        },
+        4: {
+            program: InternetExplorer,
+            dimensions: [416, 305],
+            showMinAndMax: true
         }
     };
     
