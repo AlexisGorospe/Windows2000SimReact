@@ -40,7 +40,7 @@ function Mspaint(props) {
     const [allStrokes, setAllStrokes] = useState([]);
     const [currentPoints, setCurrentPoints] = useState([]);
     const lastPosRef = useRef({ x: 0, y: 0 });
-    const [penColor, setPenColor] = useState("blue");
+    const [penColor, setPenColor] = useState("black");
     const [penWidth, setPenWidth] = useState(5);
     const [originalImageData, setOriginalImageData] = useState(null);
 
@@ -127,87 +127,94 @@ function Mspaint(props) {
     }
 
     // stuff from https://medium.com/@subhadipjana866/drawing-on-an-image-in-a-react-canvas-9cc47d38e183
-     const loadImageCanvas = (path) => {
-            const canvas = canvasRef.current;
-            const context = canvas.getContext("2d");
-            setCtx(context);
-            
-            const image = new Image();
-            image.crossOrigin = "anonymous";
-            image.src = path;
-    
-            image.onload = () => {
-                canvas.width = image.width;
-                canvas.height = image.height;
-                context.drawImage(image, 0, 0);
-                const baseImageData = canvas.toDataURL("image/png");
-                setOriginalImageData(baseImageData);
-            };
+    const loadImageCanvas = (path) => {
+        const canvas = canvasRef.current;
+        const context = canvas.getContext("2d");
+        setCtx(context);
+        
+        const image = new Image();
+        image.crossOrigin = "anonymous";
+        image.src = path;
+
+        image.onload = () => {
+            canvas.width = image.width;
+            canvas.height = image.height;
+            context.drawImage(image, 0, 0);
+            const baseImageData = canvas.toDataURL("image/png");
+            setOriginalImageData(baseImageData);
         };
-    
-        const getCanvasCoords = (e) => {
-            let clientX, clientY;
-            if (e.touches && e.touches.length > 0) {
-                clientX = e.touches[0].clientX;
-                clientY = e.touches[0].clientY;
-            } else {
-                clientX = e.clientX;
-                clientY = e.clientY;
-            }
-            const canvas = canvasRef.current;
-            const rect = canvas.getBoundingClientRect();
-            const scaleX = canvas.width / rect.width;
-            const scaleY = canvas.height / rect.height;
-    
-            return {
-                x: (clientX - rect.left) * scaleX,
-                y: (clientY - rect.top) * scaleY,
-            };
+    };
+
+    const getCanvasCoords = (e) => {
+        let clientX, clientY;
+        if (e.touches && e.touches.length > 0) {
+            clientX = e.touches[0].clientX;
+            clientY = e.touches[0].clientY;
+        } else {
+            clientX = e.clientX;
+            clientY = e.clientY;
+        }
+        const canvas = canvasRef.current;
+        const rect = canvas.getBoundingClientRect();
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+
+        return {
+            x: (clientX - rect.left) * scaleX,
+            y: (clientY - rect.top) * scaleY,
         };
+    };
+
+    const handlePointerDown = (e) => {
+        e.preventDefault();
+        if (!ctx) return;
+        setIsDrawing(true);
+        const { x, y } = getCanvasCoords(e);
+        lastPosRef.current = { x, y };
+    };
+
+    const handlePointerMove = (e) => {
+        e.preventDefault();
+        if (!ctx || !isDrawing) return;
+        
+        const { x, y } = getCanvasCoords(e);
+        setCurrentPoints((prev) => [...prev, { x, y }]);
+
+        const prevPoints = currentPoints;
+        if (prevPoints.length < 1) return;
+
+        const last = prevPoints[prevPoints.length - 1];
+
+        ctx.beginPath();
+        ctx.moveTo(last.x, last.y);
+        ctx.lineTo(x, y);
+        ctx.strokeStyle = penColor;
+        ctx.lineWidth = penWidth;
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        ctx.globalCompositeOperation = "source-over";
+        ctx.stroke();
+    };
+
+    const handlePointerUp = (e) => {
+        e.preventDefault();
+        setIsDrawing(false);
+        setAllStrokes((prev) => [...prev, currentPoints]);
+        setCurrentPoints([]);
+    };
+
+    useEffect(() => {
+        if (img) {
+            loadImageCanvas(img);
+        }
+    }, [img]);
+
     
-        const handlePointerDown = (e) => {
-            e.preventDefault();
-            if (!ctx) return;
-            setIsDrawing(true);
-            const { x, y } = getCanvasCoords(e);
-            lastPosRef.current = { x, y };
-        };
-    
-        const handlePointerMove = (e) => {
-            e.preventDefault();
-            if (!ctx || !isDrawing) return;
-            
-            const { x, y } = getCanvasCoords(e);
-            setCurrentPoints((prev) => [...prev, { x, y }]);
-    
-            const prevPoints = currentPoints;
-            if (prevPoints.length < 1) return;
-    
-            const last = prevPoints[prevPoints.length - 1];
-    
-            ctx.beginPath();
-            ctx.moveTo(last.x, last.y);
-            ctx.lineTo(x, y);
-            ctx.strokeStyle = penColor;
-            ctx.lineWidth = penWidth;
-            ctx.lineCap = "round";
-            ctx.lineJoin = "round";
-            ctx.globalCompositeOperation = "source-over";
-            ctx.stroke();
-        };
-    
-        const handlePointerUp = (e) => {
-            e.preventDefault();
-            setIsDrawing(false);
-            setAllStrokes((prev) => [...prev, currentPoints]);
-            setCurrentPoints([]);
-        };
-    
-        useEffect(() => {
-            if (img) {
-                loadImageCanvas(img);
-            }
-        }, [img]);
+    const changeColor = (colour) => {
+        setPrimaryColour(colour)
+        setPenColor(colour)
+    }
+        
 
 
 
@@ -343,7 +350,7 @@ function Mspaint(props) {
 
                 <div className={"colours"}> {/*this will be a grid that has all the colours*/}
                     {defaultColors.map((col) => (
-                        <button style={{backgroundColor: `${col}`}} onClick={() => {setPrimaryColour(col)}}></button>
+                        <button style={{backgroundColor: `${col}`}} onClick={() => changeColor(col)}></button>
                     ))}
                 </div>
             </footer>
