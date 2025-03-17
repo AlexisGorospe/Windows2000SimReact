@@ -8,8 +8,11 @@ import Notepad from "../programs/notepad/Notepad";
 import About from "../programs/about/About";
 import Message from "../programs/message/Message";
 import InternetExplorer from "../programs/internet_explorer/InternetExplorer";
+import Welcome from "../programs/welcome/Welcome";
 
 // icons
+import ico_logo from "../../assets/img/icons/logo/logo.ico"
+
 import ico_iexplore from "../../assets/img/icons/internet_explorer/internet_explorer.ico"
 
 import ico_explorer from "../../assets/img/icons/explorer/explorer.ico"
@@ -23,49 +26,51 @@ import ico_mspaint from "../../assets/img/icons/mspaint/mspaint.ico"
 import ico_mspaint_image from "../../assets/img/icons/mspaint/mspaint_image.ico"
 
 import ico_notepad from "../../assets/img/icons/notepad/notepad.ico"
-import { use } from "react";
-
+import notepad from "../programs/notepad/Notepad";
 
 function Window(props){
-    const iconList = {
-        0: ico_iexplore, //placeholder
-        1: ico_mspaint_image,
-        2: ico_notepad,
-        3: ico_notepad, //placeholder
-        4: ico_iexplore
-    };
-
-    //[program, [width, height], show min and max]
     const programList = {
         0: {
             program: Message,
+            icon: ico_iexplore,
             dimensions: [205, 120],
             fixedDimensions: true,
             showMinAndMax: false
         },
         1: {
             program: Mspaint,
+            icon: ico_mspaint_image,
             dimensions: [700, 700],
             fixedDimensions: false,
             showMinAndMax: true
         },
         2: {
             program: Notepad,
+            icon: ico_notepad,
             dimensions: [300, 300],
             fixedDimensions: false,
             showMinAndMax: true
         },
         3: {
             program: About,
+            icon: notepad,
             dimensions: [416, 305],
             fixedDimensions: true,
             showMinAndMax: false
         },
         4: {
             program: InternetExplorer,
+            icon: ico_iexplore,
             dimensions: [416, 305],
             fixedDimensions: false,
             showMinAndMax: true
+        },
+        5: {
+            program: Welcome,
+            icon: ico_logo,
+            dimensions: [478, 322],
+            fixedDimensions: true,
+            showMinAndMax: false
         }
     };
     
@@ -137,7 +142,7 @@ function Window(props){
              dragHandleClassName={"titlebar"}>
             <div className={"titlebar"}>
                 <div className={"titlebar_left"}>
-                    <img src={iconList[program]} width={"16px"} height={"16px"} />
+                    <img src={programList[props.program].icon} width={"16px"} height={"16px"} />
                     <p className={"text_bold"}>{titlebar + " " +  about_programName}</p>
                 </div>
                 <div className={"buttons"}>
@@ -149,7 +154,7 @@ function Window(props){
             <ProgramToRender
             onDataFromProgram={handleDataFromProgram}
 
-            about_icon={iconList[about_icon]} 
+            about_icon={programList[props.program].icon}
             about_programName={about_programName}
 
             message_icon={message_icon}
