@@ -333,8 +333,12 @@ function Mspaint(props) {
 
             <footer>
                 <div className={"selected_colours"}>
-                    <div className={"primary"}></div>
-                    <div className={"secondary"}></div>
+                    <div className={"primary"} style={{
+                        backgroundColor: `${primaryColour}`
+                    }}/>
+                    <div className={"secondary"} style={{
+                        backgroundColor: `${secondaryColour}`
+                    }}/>
                 </div>
 
                 <div className={"colours"}> {/*this will be a grid that has all the colours*/}
