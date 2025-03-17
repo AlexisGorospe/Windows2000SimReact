@@ -59,6 +59,8 @@ function Window(props){
     const [titlebar, setTitlebar] = useState(props.titlebar);
     const [window_id, setWindow_id] = useState(props.window_id);
 
+    const [maximized, setMaximized] = useState(false)
+
     const [program, setProgram] = useState(props.program);
 
     const [max_height, setMaxHeight] = useState(props.max_height);
