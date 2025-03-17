@@ -44,6 +44,9 @@ function Mspaint(props) {
     const [penWidth, setPenWidth] = useState(5);
     const [originalImageData, setOriginalImageData] = useState(null);
 
+
+    const [primaryColour, setPrimaryColour] = useState("#000000");
+    const [secondaryColour, setSecondaryColour] = useState("#FFFFFF");
     const [defaultColors, setDefaultColors] = useState([
         "#000000",
         "#808080",
@@ -305,6 +308,9 @@ function Mspaint(props) {
                             </button>
                         ))}
                     </div>
+                    <div className={"box_settings"}>
+
+                    </div>
                 </aside>
 
                 <canvas
@@ -333,7 +339,7 @@ function Mspaint(props) {
 
                 <div className={"colours"}> {/*this will be a grid that has all the colours*/}
                     {defaultColors.map((col) => (
-                        <button style={{backgroundColor: `${col}`}}>{col}</button>
+                        <button style={{backgroundColor: `${col}`}}></button>
                     ))}
                 </div>
             </footer>

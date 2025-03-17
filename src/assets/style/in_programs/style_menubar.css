@@ -4,6 +4,8 @@
     border-bottom-width: 2px;
     border-bottom-color: #808080;
 
+    background-color: #d4d0c8;
+
     .dropbtn{
         cursor: pointer;
     }

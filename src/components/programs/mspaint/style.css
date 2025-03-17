@@ -2,6 +2,8 @@
     padding: 0;
     margin: 0;
 
+    background-color: #808080;
+
     main {
         display: flex;
 
@@ -12,12 +14,18 @@
             border-right-width: 2px;
             border-right-color: #808080;
 
+            background-color: #d4d0c8;
+            
+            display: flex;
+            flex-direction: column;
+
+            padding-left: 5px;
+
             .buttons {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
                 grid-template-rows: repeat(8, 1fr);
                 width: 50px;
-                margin-left: 5px;
 
                 button {
                     display: flex;
@@ -43,8 +51,20 @@
                     border-right-color: white;
                     border-bottom-color: white;
                 }
+            }
 
-                /*put the stuff for when it's pressed later*/
+            .box_settings{
+                width: 39px;
+                height: 64px;
+
+                border-style: solid;
+                border-width: 2px;
+
+                border-top-color: #808080;
+                border-left-color: #808080;
+
+                border-right-color: #FFFFFF;
+                border-bottom-color: #FFFFFF;
             }
         }
 
@@ -54,6 +74,49 @@
     }
 
     footer{
+        position: fixed;
+        bottom: 0;
+
+        display: flex;
+
+
+
+        .selected_colours{
+            width: 28px;
+            height: 28px;
+            border-style: solid;
+            border-width: 2px;
+
+            border-top-color: black;
+            border-left-color: black;
+            border-right-color: white;
+            border-bottom-color: white;
+
+            .primary, .secondary{
+
+                border-style: solid;
+                border-width: 2px;
+                width: 13px;
+                height: 13px;
+                border-top-color: white;
+                border-left-color: white;
+                border-right-color: #808080;
+                border-bottom-color: #808080;
+            }
+
+            .primary{
+                position: relative;
+                left: 3px;
+                top: 2px;
+            }
+
+            .secondary{
+                position: relative;
+                right: 3px;
+                bottom: 3px;
+            }
+        }
+
         .colours{
             display: grid; 
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
@@ -61,11 +124,16 @@
             gap: 0px 0px; 
             grid-template-areas: 
               ". . . . . . . . . . . . . ."
-              ". . . . . . . . . . . . . ."; 
+              ". . . . . . . . . . . . . .";
+
+            width: min-content;
 
             button{
                 border-style: solid;
-                border-width: 2px;    
+                border-width: 2px;
+
+                width: 18px;
+                height: 18px;
             
                 border-top-color: white;
                 border-left-color: white;
