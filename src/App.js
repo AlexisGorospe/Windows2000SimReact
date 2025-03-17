@@ -72,13 +72,6 @@ const App = () => {
 
     //functions-------
 
-    //desktop icons
-    const desktopIconList = [
-        // [titlebar, program, icon, name],
-        ["Untitled - Notepad", 1, ico_notepad, "Notepad"],
-        ["Untitled - Paint", 2, ico_mspaint, "Paint"],
-    ]
-
 
     // Window
     const createNewWindow = (titlebar = "Untitled - Notepad", program = 1) => {
