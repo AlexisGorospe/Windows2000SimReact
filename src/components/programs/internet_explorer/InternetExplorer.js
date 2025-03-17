@@ -9,7 +9,7 @@ function InternetExplorer(){
                 <div></div>
             </header>
             <iframe src={"/"}/>
-        </div> the >
+        </div>
 
 
     )
