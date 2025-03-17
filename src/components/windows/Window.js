@@ -40,26 +40,31 @@ function Window(props){
         0: {
             program: Message,
             dimensions: [205, 120],
+            fixedDimensions: true,
             showMinAndMax: false
         },
         1: {
             program: Mspaint,
             dimensions: [700, 700],
+            fixedDimensions: false,
             showMinAndMax: true
         },
         2: {
             program: Notepad,
             dimensions: [300, 300],
+            fixedDimensions: false,
             showMinAndMax: true
         },
         3: {
             program: About,
             dimensions: [416, 305],
+            fixedDimensions: true,
             showMinAndMax: false
         },
         4: {
             program: InternetExplorer,
             dimensions: [416, 305],
+            fixedDimensions: false,
             showMinAndMax: true
         }
     };
@@ -122,7 +127,14 @@ function Window(props){
     }
 
     return(
-        <Rnd className={"window"} default={{x: 100, y: 300, width: programList[props.program].dimensions[0], height: programList[props.program].dimensions[1], minHeight: {max_height}, minWidth: {max_width}}} dragHandleClassName={"titlebar"}>
+        <Rnd className={"window"} default={{x: 100, y: 300, width: programList[props.program].dimensions[0], height: programList[props.program].dimensions[1]}}
+
+             maxWidth={programList[props.program].fixedDimensions ? programList[props.program].dimensions[0] : 999999}
+             minWidth={programList[props.program].fixedDimensions ? programList[props.program].dimensions[0] : 300}
+             maxHeight={programList[props.program].fixedDimensions ? programList[props.program].dimensions[1] : 999999}
+             minHeight={programList[props.program].fixedDimensions ? programList[props.program].dimensions[1] : 100}
+
+             dragHandleClassName={"titlebar"}>
             <div className={"titlebar"}>
                 <div className={"titlebar_left"}>
                     <img src={iconList[program]} width={"16px"} height={"16px"} />
