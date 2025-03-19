@@ -68,7 +68,7 @@ function Window(props){
         5: {
             program: Welcome,
             icon: ico_logo,
-            dimensions: [478, 322],
+            dimensions: [482, 349],
             fixedDimensions: true,
             showMinAndMax: false
         }

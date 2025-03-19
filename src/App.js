@@ -128,7 +128,7 @@ const App = () => {
                 {windows.map(window => window)}
 
                 {/*test*/}
-                <Window titlebar={"This is a test."} icon_class={"2"} program={1}/>
+                <Window titlebar={"Getting Started with Windows 2000"} program={5}/>
             </div>
 
             <div id={"desktop_icon_grid"}>
