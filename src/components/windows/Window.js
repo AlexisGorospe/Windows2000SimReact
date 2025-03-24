@@ -35,45 +35,51 @@ function Window(props){
             icon: ico_iexplore,
             dimensions: [205, 120],
             fixedDimensions: true,
-            showMinAndMax: false
+            showMinAndMax: false,
+            showIcon: false,
         },
         1: {
             program: Mspaint,
             icon: ico_mspaint_image,
             dimensions: [700, 700],
             fixedDimensions: false,
-            showMinAndMax: true
+            showMinAndMax: true,
+            showIcon: true
         },
         2: {
             program: Notepad,
             icon: ico_notepad,
             dimensions: [300, 300],
             fixedDimensions: false,
-            showMinAndMax: true
+            showMinAndMax: true,
+            showIcon: true,
         },
         3: {
             program: About,
-            icon: notepad,
+            icon: ico_logo,
             dimensions: [416, 305],
             fixedDimensions: true,
-            showMinAndMax: false
+            showMinAndMax: false,
+            showIcon: true
         },
         4: {
             program: InternetExplorer,
             icon: ico_iexplore,
             dimensions: [416, 305],
             fixedDimensions: false,
-            showMinAndMax: true
+            showMinAndMax: true,
+            showIcon: false
         },
         5: {
             program: Welcome,
             icon: ico_logo,
             dimensions: [478, 322],
             fixedDimensions: true,
-            showMinAndMax: false
+            showMinAndMax: false,
+            showIcon: true
         }
     };
-    
+
     const [titlebar, setTitlebar] = useState(props.titlebar);
     const [window_id, setWindow_id] = useState(props.window_id);
 
@@ -114,6 +120,7 @@ function Window(props){
 
     const ProgramToRender = programList[props.program].program;
     console.log(program);
+    console.log(programList[props.program].icon)
 
     function closeProgram(){
         console.log("this window is supposed to delete itself");
@@ -142,7 +149,7 @@ function Window(props){
              dragHandleClassName={"titlebar"}>
             <div className={"titlebar"}>
                 <div className={"titlebar_left"}>
-                    <img src={programList[props.program].icon} width={"16px"} height={"16px"} />
+                    <img src={programList[props.program].icon} width={"16px"} height={"16px"}/>
                     <p className={"text_bold"}>{titlebar + " " +  about_programName}</p>
                 </div>
                 <div className={"buttons"}>
@@ -154,8 +161,8 @@ function Window(props){
             <ProgramToRender
             onDataFromProgram={handleDataFromProgram}
 
-            about_icon={programList[props.program].icon}
-            about_programName={about_programName}
+            about_icon={programList[about_icon]}
+            about_programName={about_programName ? about_programName : "Windows"}
 
             message_icon={message_icon}
             message_text={message_text}
@@ -164,6 +171,8 @@ function Window(props){
             />
         </Rnd>
     )
+
+
 }
 
 export default Window;
