@@ -80,6 +80,15 @@ function Window(props){
         }
     };
 
+    const iconList = { //exists because the about window refuses to work without it and i hate that
+        0: ico_iexplore,
+        1: ico_mspaint,
+        2: ico_notepad,
+        3: ico_logo,
+        4: ico_iexplore,
+        5: ico_logo
+    }
+
     const [titlebar, setTitlebar] = useState(props.titlebar);
     const [window_id, setWindow_id] = useState(props.window_id);
 
@@ -100,6 +109,7 @@ function Window(props){
 
 
     //--about window only--
+    const isAboutWindow = useState(program == 3)
     const [about_icon, setAbout_icon] = useState(props.about_icon);
     const [about_programName, setAbout_programName] = useState(props.about_program_name);
 
@@ -149,7 +159,7 @@ function Window(props){
              dragHandleClassName={"titlebar"}>
             <div className={"titlebar"}>
                 <div className={"titlebar_left"}>
-                    <img src={programList[props.program].icon} width={"16px"} height={"16px"}/>
+                    <img src={programList[props.program].icon}/>
                     <p className={"text_bold"}>{titlebar + " " +  about_programName}</p>
                 </div>
                 <div className={"buttons"}>
@@ -161,7 +171,7 @@ function Window(props){
             <ProgramToRender
             onDataFromProgram={handleDataFromProgram}
 
-            about_icon={programList[about_icon]}
+            about_icon={iconList[about_icon]}
             about_programName={about_programName ? about_programName : "Windows"}
 
             message_icon={message_icon}
