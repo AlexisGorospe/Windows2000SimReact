@@ -19,6 +19,9 @@ import ico_mspaint_image from "./assets/img/icons/mspaint/mspaint_image.ico"
 
 import ico_notepad from "./assets/img/icons/notepad/notepad.ico"
 
+// remove later
+import ico_copilot_april_fools from "./assets/img/icons/this_only_appears_for_an_april_fools_joke/ew.png"
+
 //Start Menu
 import start_banner from "./assets/img/start_banner.png"
 import "./assets/style/style_startMenu.css"
@@ -155,6 +158,12 @@ const App = () => {
                 }}>
                     <img src={ico_iexplore}/>
                     <p>{"Internet Explorer"}</p>
+                </button>
+                <button className={"desktop_icon"} onDoubleClick={() => {
+                    createNewWindow("get pranked april fools", 90)
+                }}>
+                    <img src={ico_copilot_april_fools}/>
+                    <p>{"Copilot"}</p>
                 </button>
             </div>
 

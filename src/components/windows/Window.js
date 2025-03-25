@@ -28,6 +28,10 @@ import ico_mspaint_image from "../../assets/img/icons/mspaint/mspaint_image.ico"
 import ico_notepad from "../../assets/img/icons/notepad/notepad.ico"
 import notepad from "../programs/notepad/Notepad";
 
+
+import ico_copilot_april_fools from "../../assets/img/icons/this_only_appears_for_an_april_fools_joke/ew.png"
+import copilot_april_fools from "../programs/copilot_fake/FakeCopilot"
+
 function Window(props){
     const programList = {
         0: {
@@ -77,10 +81,18 @@ function Window(props){
             fixedDimensions: true,
             showMinAndMax: false,
             showIcon: true
+        },
+        90: {
+            program: copilot_april_fools,
+            icon: ico_logo,
+            dimensions: [482, 349],
+            showMinAndMax: false,
+            showIcon: true
         }
     };
 
     const iconList = { //exists because the about window refuses to work without it and i hate that
+        90: ico_copilot_april_fools,
         0: ico_iexplore,
         1: ico_mspaint,
         2: ico_notepad,
