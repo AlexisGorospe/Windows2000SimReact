@@ -1,4 +1,5 @@
 import React, {useEffect, useRef, useState} from "react";
+import Window from "../../windows/Window";
 import "./style.css"
 import WhiteScreen from "./white_screen.png"
 
@@ -124,6 +125,34 @@ function Mspaint(props) {
 
         */
         // THANK YOU https://www.youtube.com/watch?v=Wn8gR3CSuEc
+    }
+
+    // --help--
+
+    function showHelpDDM(){
+        closeDDMs()
+        setHelpDDM(!helpDDM)
+        console.log(viewDDM)
+    }
+
+    const help_about = () => {
+        closeDDMs()
+        setWindows((prevWindows) => [
+            ...prevWindows,
+            <Window key={prevWindows.length} titlebar={"About"} program={3} max_height={419} max_width={329} about_icon={1} about_program_name={"Paint"}/>
+        ]);
+    }
+
+    // Window
+    const createNewWindow = (titlebar = "Untitled - Notepad", program = 2) => {
+        console.log(titlebar)
+        console.log(program)
+
+        setWindows((prevWindows) => [
+            ...prevWindows,
+            <Window key={prevWindows.length} titlebar={titlebar} program={program.toString()}/>
+        ]);
+        console.log(titlebar + program);
     }
 
     // stuff from https://medium.com/@subhadipjana866/drawing-on-an-image-in-a-react-canvas-9cc47d38e183
@@ -292,6 +321,10 @@ function Mspaint(props) {
 
     return (
         <div className={"program_mspaint"}>
+            <div className={"windows"}>
+                {windows.map(window => window)}
+            </div>
+
             <div className={"menubar"}>
                 {/*https://www.w3schools.com/howto/howto_js_dropdown.asp*/}
 
@@ -302,6 +335,13 @@ function Mspaint(props) {
                         <a onClick={"#"}>Open</a>
                         <a onClick={"#"}>Save</a>
                         <a onClick={"#"}>Save As</a>
+                    </div>
+                </div>
+
+                <div className="dropdown">
+                    <button className="dropbtn" onClick={showHelpDDM}>Help</button>
+                    <div id="myDropdown" className={helpDDM ? 'dropdown-content visible' : 'dropdown-content '}>
+                        <a onClick={help_about}>About Paint</a>
                     </div>
                 </div>
 
