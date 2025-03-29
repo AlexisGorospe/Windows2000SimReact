@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import Window from "../../windows/Window.js";
-import about from "../about/About";
 import "./style.css"
 
 //import the fonts later
@@ -14,6 +13,7 @@ function Notepad(props) {
 
     const [textAreaContent, setTextAreaContent] =  useState("")
     const [wordWrap, setWordWrap] = useState(false)
+    const [font, setFont] = useState()
 
     const [windows , setWindows] = useState([]);
 
@@ -104,7 +104,7 @@ function Notepad(props) {
         closeDDMs()
         setWindows((prevWindows) => [
             ...prevWindows,
-            <Window key={prevWindows.length} titlebar={"About"} program={3} max_height={419} max_width={329} w={2} about_program_name={"Notepad"}/>
+            <Window key={prevWindows.length} titlebar={"About"} program={3} max_height={419} max_width={329} about_icon={2} about_program_name={"Notepad"}/>
         ]);
     }
     // Window
@@ -162,8 +162,8 @@ function Notepad(props) {
                     </div>
                 </div>
             </div>
-            <textarea onChange={handleTextAreaChange} value={textAreaContent} name="notepad"
-                      className={wordWrap ? '' : 'noWordWrap'}></textarea>
+            <textarea onChange={handleTextAreaChange} value={textAreaContent} name="notepad" 
+            className={wordWrap ? '' : 'noWordWrap' + " "}></textarea>
         </div>
     );
 

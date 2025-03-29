@@ -1,3 +1,33 @@
+@font-face {
+    font-family: calibri;
+    src: url(assets/fonts/calibri/calibri.ttf);
+}
+
+@font-face {
+    font-family: comic_sans_ms;
+    src: url(assets/fonts/comic_sans_ms/comic.ttf);
+}
+
+@font-face {
+    font-family: fixedsys;
+    src: url(assets/fonts/fixedsys/vgafix.fon);
+}
+
+@font-face {
+    font-family: papyrus;
+    src: url(assets/fonts/papyrus//PAPYRUS.TTF);
+}
+
+@font-face {
+    font-family: tahoma;
+    src: url(assets/fonts/tahoma/tahoma.ttf);
+}
+
+@font-face {
+    font-family: times_new_roman;
+    src: url(assets/fonts/times_new_roman/times.ttf);
+}
+
 .program_notepad{
     width: calc(100% - 9px);
     height: calc(100% - 47px);
@@ -11,6 +41,14 @@
 
     textarea.noWordWrap{
         white-space: nowrap;
+    }
+
+    textarea.calibri{
+        font: calibri;
+    }
+
+    textarea.comic_sans_ms{
+        font: comic_sans_ms;
     }
 }
 
