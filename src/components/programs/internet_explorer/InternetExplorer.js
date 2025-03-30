@@ -3,7 +3,7 @@ import "./style.css"
 
 function InternetExplorer(){
 
-    const [currentUrl, setCurrentUrl] = useState("https://www.mojeek.com/")
+    const [currentUrl, setCurrentUrl] = useState("https://www.bing.com/search?q=hello there")
     const [searchBarContent, setSearchBarContent] = useState("") 
 
     const search = (event) => {
@@ -18,7 +18,7 @@ function InternetExplorer(){
             <header>
                 <form onSubmit={search}>
                     <input type="text" value={searchBarContent}></input>
-                    <button type="submit" value={"replace this text later"}></button>
+                    <button type="submit" value={"replace this text later"}>replace this text later</button>
                 </form>
             </header>
             <iframe src={currentUrl}/>
