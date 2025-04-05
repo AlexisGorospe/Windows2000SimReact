@@ -9,7 +9,7 @@ function InternetExplorer(){
     const search = (event) => {
         event.preventDefault();
 
-        setCurrentUrl("https://www.bing.com/search?q=hello there")
+        setCurrentUrl(`https://www.bing.com/search?q=${searchBarContent}`)
     }
 
 
@@ -17,7 +17,10 @@ function InternetExplorer(){
         <div className={"internet_explorer"}>
             <header>
                 <form onSubmit={search}>
-                    <input type="text" value={searchBarContent}></input>
+                    <input type="text" 
+                    value={searchBarContent}
+                    onChange={(e) => setSearchBarContent(e.target.value)}
+                    ></input>
                     <button type="submit" value={"replace this text later"}>replace this text later</button>
                 </form>
             </header>
