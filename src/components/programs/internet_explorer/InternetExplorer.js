@@ -5,11 +5,25 @@ function InternetExplorer(){
 
     const [currentUrl, setCurrentUrl] = useState("https://www.bing.com/search?q=hello there")
     const [searchBarContent, setSearchBarContent] = useState("") 
+    const [test, setTest] = useState(false);
 
     const search = (event) => {
         event.preventDefault();
+        console.log(searchBarContent[0,3])
+        
+        let regex = /^(http:|https:)/;
 
-        setCurrentUrl(`https://www.bing.com/search?q=${searchBarContent}`)
+        if(regex.test(searchBarContent)){
+            setCurrentUrl(searchBarContent)
+        }
+        else{
+            setCurrentUrl(`https://www.bing.com/search?q=${searchBarContent}`)
+        }
+
+
+
+
+        // focus on making it look nice later
     }
 
 
@@ -23,6 +37,8 @@ function InternetExplorer(){
                     ></input>
                     <button type="submit" value={"replace this text later"}>replace this text later</button>
                 </form>
+                <p>{currentUrl}</p>
+                <p>{test}</p>
             </header>
             <iframe src={currentUrl}/>
         </div>
