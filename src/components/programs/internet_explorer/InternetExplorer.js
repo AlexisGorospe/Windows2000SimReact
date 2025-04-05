@@ -24,6 +24,7 @@ function InternetExplorer(){
 
 
         // focus on making it look nice later
+        // also make sure to replace bing with another search engine that runs in iframes
     }
 
 
