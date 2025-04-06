@@ -10,21 +10,28 @@ import register_windows_2000 from "./img/register_windows_2000.png"
 
 function Welcome() {
 
-    const [currentImage, setCurrentImage] = React.useState(getting_started);
+    const images = [getting_started, connect_to_the_internet, discover_windows_2000, register_windows_2000]
+    const [currentImage, setCurrentImage] = React.useState(images[0]);
+
+    function changeImage(imageID){
+        setCurrentImage(images[imageID])
+    }
 
     return(
         <div className={"welcome"}>
             <img src={banner} alt="banner" className={"banner"}/>
             <div className={"content"}>
                 <aside>
-                    <p>Register Now</p>
-                    <p>Discover Windows</p>
-                    <p>Connect to the Internet</p>
+                    <p onMouseOver={() => {changeImage(1)}}>Register Now</p>
+                    <p onMouseOver={() => {changeImage(2)}}>Discover Windows</p>
+                    <p onMouseOver={() => {changeImage(3)}}>Connect to the Internet</p>
                 </aside>
                 <img className={"current"} src={currentImage}/>
             </div>
         </div>
     )
+
+    // make the stuff that appears when you click it later
 }
 
 export default Welcome;
