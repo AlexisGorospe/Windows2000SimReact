@@ -23,6 +23,16 @@
 
             p {
                 margin: 0;
+                height: 24px;
+                border-width: 0;
+                border-bottom: #336699;
+                border-style: solid;
+                border-bottom-width: 2px;
+                padding-left: 10px;
+            }
+
+            p:hover{
+                background-color: white;
             }
 
 
