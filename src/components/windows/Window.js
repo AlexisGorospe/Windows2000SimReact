@@ -69,7 +69,7 @@ function Window(props){
         4: {
             program: InternetExplorer,
             icon: ico_iexplore,
-            dimensions: [416, 305],
+            dimensions: [600, 490],
             fixedDimensions: false,
             showMinAndMax: true,
             showIcon: false

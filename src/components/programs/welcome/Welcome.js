@@ -28,6 +28,8 @@ function Welcome() {
                 </aside>
                 <img className={"current"} src={currentImage}/>
             </div>
+
+            <button className={"exit_button"}/>
         </div>
     )
 

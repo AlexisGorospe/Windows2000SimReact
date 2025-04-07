@@ -3,8 +3,8 @@ import "./style.css"
 
 function InternetExplorer(){
 
-    const [currentUrl, setCurrentUrl] = useState("https://www.bing.com/search?q=hello there")
-    const [searchBarContent, setSearchBarContent] = useState("") 
+    const [currentUrl, setCurrentUrl] = useState("https://metasearx.com/?q=among%20us&categories=general&language=en-US/..")
+    const [searchBarContent, setSearchBarContent] = useState("https://metasearx.com") 
     const [test, setTest] = useState(false);
 
     const search = (event) => {
@@ -16,8 +16,11 @@ function InternetExplorer(){
         if(regex.test(searchBarContent)){
             setCurrentUrl(searchBarContent)
         }
+        else if(searchBarContent.length == 0){
+            setCurrentUrl(`https://metasearx.com/?q=nothing&categories=general&language=en-US`)
+        }
         else{
-            setCurrentUrl(`https://www.bing.com/search?q=${searchBarContent}`)
+            setCurrentUrl(`https://metasearx.com/?q=${searchBarContent}&categories=general&language=en-US`)
         }
 
 
@@ -25,6 +28,12 @@ function InternetExplorer(){
 
         // focus on making it look nice later
         // also make sure to replace bing with another search engine that runs in iframes
+    }
+
+    const refresh = () => {
+        setCurrentUrl(`about:blank`)
+        setCurrentUrl(currentUrl)
+        console.log("refresjhned")
     }
 
 
@@ -36,10 +45,11 @@ function InternetExplorer(){
                     value={searchBarContent}
                     onChange={(e) => setSearchBarContent(e.target.value)}
                     ></input>
-                    <button type="submit" value={"replace this text later"}>replace this text later</button>
+                    <button type="submit">go</button>
                 </form>
-                <p>{currentUrl}</p>
-                <p>{test}</p>
+                <button onClick={refresh}>refresh</button>
+                {/* <p>{currentUrl}</p>
+                <p>{test}</p> */}
             </header>
             <iframe src={currentUrl}/>
         </div>
