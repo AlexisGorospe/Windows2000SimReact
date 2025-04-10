@@ -13,8 +13,8 @@ function About(props){
         setAbout_programName("Windows")
     }
 
-    const sendDataToParent=()=>{
-        props.onDataFromProgram(false)
+    const buttonPressed=()=>{
+        props.keepProgramOpen(false)
     }
 
 
@@ -37,7 +37,7 @@ function About(props){
                     <p>Physical memory available to Windows: idk i'm not a real about window</p>
                 </div>
             </div>
-            <button className={"msg_button"} onClick={sendDataToParent}>OK</button>
+            <button className={"msg_button"} onClick={buttonPressed}>OK</button>
 
         </div>
     )
