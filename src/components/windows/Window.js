@@ -92,13 +92,14 @@ function Window(props){
     };
 
     const iconList = { //exists because the about window refuses to work without it and i hate that
-        90: ico_copilot_april_fools,
         0: ico_iexplore,
         1: ico_mspaint,
         2: ico_notepad,
         3: ico_logo,
         4: ico_iexplore,
-        5: ico_logo
+        5: ico_logo,
+
+        90: ico_copilot_april_fools,
     }
 
     const [titlebar, setTitlebar] = useState(props.titlebar);
@@ -106,11 +107,11 @@ function Window(props){
 
     const [maximized, setMaximized] = useState(false)
 
+    const [currentPosition, setCurrentPosition] = useState([100, 300]);
+
     const [program, setProgram] = useState(props.program);
 
-    const [max_height, setMaxHeight] = useState(props.max_height);
-    const [max_width, setMaxWidth] = useState(props.max_width);
-
+    // these two are just default values
     const [width, setWidth] = useState(props.width)
     const [height, setHeight] = useState(props.height)
 
@@ -144,10 +145,13 @@ function Window(props){
     console.log(program);
     console.log(programList[props.program].icon)
 
-    function closeProgram(){
-        console.log("this window is supposed to delete itself");
-        console.log(props.titlebar);
+    // buttons
 
+    function maximizeClicked(){
+        
+    }
+
+    function closeProgram(){
         setIsOpen(false);
     }
 
@@ -161,7 +165,18 @@ function Window(props){
     }
 
     return(
-        <Rnd className={"window"} default={{x: 100, y: 300, width: programList[props.program].dimensions[0], height: programList[props.program].dimensions[1]}}
+        <Rnd className={"window"} 
+        size={{ width: programList[props.program].dimensions[0],  height: programList[props.program].dimensions[1]}}
+        position={{x: currentPosition[0], y: currentPosition[1]}}
+        onDragStop={(e, d) => { setCurrentPosition([d.x, d.y])}}
+        
+
+        // default={{
+        //     x: 100, 
+        //     y: 300, 
+        //     width: programList[props.program].dimensions[0], 
+        //     height: programList[props.program].dimensions[1]
+        // }}
 
              maxWidth={programList[props.program].fixedDimensions ? programList[props.program].dimensions[0] : 999999}
              minWidth={programList[props.program].fixedDimensions ? programList[props.program].dimensions[0] : 300}
@@ -176,7 +191,7 @@ function Window(props){
                 </div>
                 <div className={"buttons"}>
                     <button className={`window_button_minimize ${programList[props.program].showMinAndMax ? "" : "hidden"}`}></button>
-                    <button className={`window_button_maximize ${programList[props.program].showMinAndMax ? "" : "hidden"}`}></button>
+                    <button className={`window_button_maximize ${programList[props.program].showMinAndMax ? "" : "hidden"}`} onClick={maximizeClicked}></button>
                     <button className={"window_button_close"} onClick={closeProgram}></button>
                 </div>
             </div>
