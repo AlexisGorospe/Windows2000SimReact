@@ -111,11 +111,14 @@ function Window(props){
 
     const [program, setProgram] = useState(props.program);
 
-    // these two are just default values
-    const [width, setWidth] = useState(props.width)
-    const [height, setHeight] = useState(props.height)
+    // width and heigt
+    const defaultWidth = useState(props.width)
+    const defaultHeight = useState(props.height)
 
-    const defaultWindowPosition = [window.screen.width/2 - width/2, window.screen.height/2 - height/2];
+    const [currentWidth, setCurrentWidth] = useState(programList[props.program].dimensions[0])
+    const [currentHeight, setCurrentHeight] = useState(programList[props.program].dimensions[1])
+
+    const defaultWindowPosition = [window.screen.width/2 - defaultWidth/2, window.screen.height/2 - defaultHeight/2];
 
     const [isOpen, setIsOpen] = useState(true);
     const [isVisible, setIsVisible] = useState(true);
@@ -148,7 +151,7 @@ function Window(props){
     // buttons
 
     function maximizeClicked(){
-        
+        console.log("afjsdlkfsfjklhjioawtrhioi;rgbnujk;u;asgfdbnhujob")
     }
 
     function closeProgram(){
@@ -166,9 +169,14 @@ function Window(props){
 
     return(
         <Rnd className={"window"} 
-        size={{ width: programList[props.program].dimensions[0],  height: programList[props.program].dimensions[1]}}
-        position={{x: currentPosition[0], y: currentPosition[1]}}
-        onDragStop={(e, d) => { setCurrentPosition([d.x, d.y])}}
+            // make this more dynamic
+            size={{ width: currentWidth,  height: currentHeight}}
+            position={{x: currentPosition[0], y: currentPosition[1]}}
+            onDragStop={(e, d) => { setCurrentPosition([d.x, d.y])}}
+            onResizeStop={(e, direction, ref, delta, position) => {
+                setCurrentWidth(ref.style.width)
+                setCurrentHeight(ref.style.height)
+            }}
         
 
         // default={{
