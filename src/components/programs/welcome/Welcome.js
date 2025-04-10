@@ -8,13 +8,19 @@ import connect_to_the_internet from "./img/connect_to_the_internet.png"
 import discover_windows_2000 from "./img/discover_windows_2000.png"
 import register_windows_2000 from "./img/register_windows_2000.png"
 
-function Welcome() {
+import exit_button from "./img/exit_button.png"
+
+function Welcome(props) {
 
     const images = [getting_started, register_windows_2000, discover_windows_2000, connect_to_the_internet]
     const [currentImage, setCurrentImage] = React.useState(images[0]);
 
     function changeImage(imageID){
         setCurrentImage(images[imageID])
+    }
+
+    const exitClicked=()=>{
+        props.keepProgramOpen(false)
     }
 
     return(
@@ -29,7 +35,7 @@ function Welcome() {
                 <img className={"current"} src={currentImage}/>
             </div>
 
-            <button className={"exit_button"}/>
+            <button className={"exit_button"} onClick={exitClicked} src={exit_button}/>
         </div>
     )
 

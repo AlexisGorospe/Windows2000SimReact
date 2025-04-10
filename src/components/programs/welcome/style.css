@@ -44,4 +44,12 @@
             height: 229px;
         }
     }
+
+    .exit_button{
+        position: absolute;
+        right: 8px;
+        bottom: 8px;
+        width: 43px;
+        height: 21px;
+    }
 }
