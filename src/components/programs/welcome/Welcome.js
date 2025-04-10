@@ -10,7 +10,7 @@ import register_windows_2000 from "./img/register_windows_2000.png"
 
 function Welcome() {
 
-    const images = [getting_started, connect_to_the_internet, discover_windows_2000, register_windows_2000]
+    const images = [getting_started, register_windows_2000, discover_windows_2000, connect_to_the_internet]
     const [currentImage, setCurrentImage] = React.useState(images[0]);
 
     function changeImage(imageID){
