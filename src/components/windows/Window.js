@@ -151,7 +151,7 @@ function Window(props){
         setIsOpen(false);
     }
 
-    const handleDataFromProgram = (data)=>{
+    const keepProgramOpen = (data) => {
         setIsOpen(data);
     }
 
@@ -181,7 +181,8 @@ function Window(props){
                 </div>
             </div>
             <ProgramToRender
-            onDataFromProgram={handleDataFromProgram}
+
+            keepProgramOpen={keepProgramOpen}
 
             about_icon={iconList[about_icon]}
             about_programName={about_programName ? about_programName : "Windows"}

@@ -31,8 +31,8 @@ function Message(props){
     
     
 
-    const sendDataToParent=()=>{
-        props.onDataFromProgram(false)
+    const buttonClicked=()=>{
+        props.keepProgramOpen(false)
     }
 
     useEffect(() => {
@@ -49,7 +49,7 @@ function Message(props){
             <div className={"button_row"}>
                 {buttons.map((button, index) => {
                     return (
-                        <button key={index} className={"msg_button"} onClick={sendDataToParent}>{button[index]}</button>
+                        <button key={index} className={"msg_button"} onClick={buttonClicked}>{button[index]}</button>
                     )
                 })}
             </div>
