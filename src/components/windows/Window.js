@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { Rnd } from 'react-rnd';
 import "./style.css"
 
@@ -107,7 +107,7 @@ function Window(props){
 
     const [maximized, setMaximized] = useState(false)
 
-    const [currentPosition, setCurrentPosition] = useState([100, 300]);
+    const [currentUnmaximizedPosition, setCurrentUnmaximizedPosition] = useState([100, 300]);
 
     const [program, setProgram] = useState(props.program);
 
@@ -122,6 +122,8 @@ function Window(props){
 
     const [isOpen, setIsOpen] = useState(true);
     const [isVisible, setIsVisible] = useState(true);
+
+    // your actual window dimensions
 
 
     //--about window only--
@@ -152,6 +154,7 @@ function Window(props){
 
     function maximizeClicked(){
         console.log("afjsdlkfsfjklhjioawtrhioi;rgbnujk;u;asgfdbnhujob")
+        setMaximized(!maximized)
     }
 
     function closeProgram(){
@@ -162,6 +165,27 @@ function Window(props){
         setIsOpen(data);
     }
 
+    // literally just checks the size of your actual window
+    const getWindowSize = () => {
+        const {innerWidth, innerHeight} = window;
+        return {innerWidth, innerHeight};
+    }
+
+    const [windowSize, setWindowSize] = useState(getWindowSize());
+
+    useEffect(() => {
+        function handleWindowResize() {
+          setWindowSize(getWindowSize());
+        }
+    
+        window.addEventListener('resize', handleWindowResize);
+    
+        return () => {
+          window.removeEventListener('resize', handleWindowResize);
+        };
+      }, []);
+
+
     //unrenders the component if isOpen is not true anymore
     if (!isOpen){
         return null;
@@ -170,20 +194,27 @@ function Window(props){
     return(
         <Rnd className={"window"} 
             // make this more dynamic
-            size={{ width: currentWidth,  height: currentHeight}}
-            position={{x: currentPosition[0], y: currentPosition[1]}}
-            onDragStop={(e, d) => { setCurrentPosition([d.x, d.y])}}
+            default={{
+                x: 100, 
+                y: 300, 
+                width: programList[props.program].dimensions[0], 
+                height: programList[props.program].dimensions[1]
+            }}
+                
+            size={{ width: maximized ? windowSize.innerWidth : currentWidth,  height: maximized ? windowSize.innerHeight - 32 : currentHeight}}
+            position={{x: maximized ? 0 : currentUnmaximizedPosition[0], y: maximized ? 0 : currentUnmaximizedPosition[1]}}
+            onDragStop={(e, d) => { setCurrentUnmaximizedPosition([d.x, d.y])}}
             onResizeStop={(e, direction, ref, delta, position) => {
                 setCurrentWidth(ref.style.width)
                 setCurrentHeight(ref.style.height)
+                setCurrentUnmaximizedPosition(position)
             }}
         
 
         // default={{
         //     x: 100, 
         //     y: 300, 
-        //     width: programList[props.program].dimensions[0], 
-        //     height: programList[props.program].dimensions[1]
+
         // }}
 
              maxWidth={programList[props.program].fixedDimensions ? programList[props.program].dimensions[0] : 999999}
