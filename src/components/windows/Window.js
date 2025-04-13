@@ -151,8 +151,8 @@ function Window(props){
     }
 
     const ProgramToRender = programList[props.program].program;
-    console.log(program);
-    console.log(programList[props.program].icon)
+    // console.log(program);
+    // console.log(programList[props.program].icon)
 
     // buttons
 
