@@ -29,6 +29,11 @@ function InternetExplorer(){
         // focus on making it look nice later
     }
 
+    const updateUrlOnSearchBar = (event) => {
+        const iframe = document.getElementById("myIframe")
+        setCurrentUrl(iframe.contentWindow.location.href)
+    }
+
     const refresh = () => {
         setCurrentUrl(`about:blank`)
         setCurrentUrl(currentUrl)
@@ -50,7 +55,7 @@ function InternetExplorer(){
                 {/* <p>{currentUrl}</p>
                 <p>{test}</p> */}
             </header>
-            <iframe src={currentUrl}/>
+            <iframe id={"myIframe"} src={currentUrl} onChange={updateUrlOnSearchBar}/>
         </div>
 
 

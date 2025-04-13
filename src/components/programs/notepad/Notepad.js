@@ -44,8 +44,6 @@ function Notepad(props) {
     function file_open(){
         closeDDMs()
         console.log("this function is supposed to ask the user for a text file they wanna open in this notepad sim")
-        
-        
         // let popupWindow = window.open('url','windowName','options') //keeping this comment here because i think it's cool
     }
 
@@ -164,6 +162,8 @@ function Notepad(props) {
             </div>
             <textarea onChange={handleTextAreaChange} value={textAreaContent} name="notepad" 
             className={wordWrap ? '' : 'noWordWrap' + " "}></textarea>
+
+            
         </div>
     );
 
