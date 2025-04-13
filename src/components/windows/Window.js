@@ -28,6 +28,10 @@ import ico_mspaint_image from "../../assets/img/icons/mspaint/mspaint_image.ico"
 import ico_notepad from "../../assets/img/icons/notepad/notepad.ico"
 import notepad from "../programs/notepad/Notepad";
 
+// buttons
+import window_minimize from "./img/window_minimize.png";
+import window_maximize from "./img/window_maximize.png";
+import window_close from "./img/window_close.png";
 
 import ico_copilot_april_fools from "../../assets/img/icons/this_only_appears_for_an_april_fools_joke/ew.png"
 import copilot_april_fools from "../programs/copilot_fake/FakeCopilot"
@@ -230,7 +234,7 @@ function Window(props){
                 </div>
                 <div className={"buttons"}>
                     <button className={`window_button_minimize ${programList[props.program].showMinAndMax ? "" : "hidden"}`}></button>
-                    <button className={`window_button_maximize ${programList[props.program].showMinAndMax ? "" : "hidden"}`} onClick={maximizeClicked}></button>
+                    <button className={`${maximized ? "window_button_unmaximize" : "window_button_maximize"} ${programList[props.program].showMinAndMax ? "" : "hidden"}`} onClick={maximizeClicked}></button>
                     <button className={"window_button_close"} onClick={closeProgram}></button>
                 </div>
             </div>

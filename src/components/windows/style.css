@@ -76,6 +76,10 @@
                 background-image: url("./img/window_maximize.png");
             }
 
+            .window_button_unmaximize{
+                background-image: url("./img/window_unmaximize.png");
+            }
+
             .window_button_maximize.hidden{
                 visibility: hidden;
             }
