@@ -1,1 +1,4 @@
-ok so you will have to make some sort of thing that 
+here, notepad is the parent of window,
+and window is the parent of font.
+
+so you will have to send the data from font to window to notepad

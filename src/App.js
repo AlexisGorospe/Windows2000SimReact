@@ -117,15 +117,15 @@ const App = () => {
         console.log(startMenuOpen);
     }
 
-    const testfunction = () => {
-        console.log("it works");
-        sound_logon()
-    }
+    // const testfunction = () => {
+    //     console.log("it works");
+    //     sound_logon()
+    // }
 
 
     return (
         <div className="App">
-            <button onClick={testfunction} id={"test_button"}>test button</button>
+            {/* <button onClick={testfunction} id={"test_button"}>test button</button> */}
 
             <div className={"windows"}>
                 {windows.map(window => window)}
