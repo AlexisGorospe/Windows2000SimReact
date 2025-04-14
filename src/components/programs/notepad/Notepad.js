@@ -99,6 +99,7 @@ function Notepad(props) {
 
     
     function view_font (){
+        closeDDMs()
         setWindows((prevWindows) => [
             ...prevWindows,
             <Window key={prevWindows.length} titlebar={"Font"} program={6} about_icon={2}/>
