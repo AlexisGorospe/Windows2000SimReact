@@ -25,7 +25,7 @@ p{
   font-size: large;
 }
 
-p, a, button, time{
+p, a, button, time, label{
   font-family: "tahoma_8px";
 }
 

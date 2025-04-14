@@ -41,6 +41,10 @@ function Font(props){
     const changeFont = (font) => {
         setFontSelected(font)
     }
+
+    const submit = () => {
+        
+    }
     
 
     return(
@@ -53,6 +57,10 @@ function Font(props){
                     </li>
                 )}
             </ul>
+            <label>there is the </label>
+           <input type="number"/>
+
+           <button>OK</button>
         </div>
     )
 }
