@@ -35,6 +35,7 @@ import window_close from "./img/window_close.png";
 
 import ico_copilot_april_fools from "../../assets/img/icons/this_only_appears_for_an_april_fools_joke/ew.png"
 import copilot_april_fools from "../programs/copilot_fake/FakeCopilot"
+import ChangeFont from "../programs/notepad/subcomponents/ChangeFont";
 
 function Window(props){
     const programList = {
@@ -85,6 +86,14 @@ function Window(props){
             fixedDimensions: true,
             showMinAndMax: false,
             showIcon: true
+        },
+        6: {
+            program: ChangeFont,
+            icon: ico_logo,
+            dimensions: [300, 300],
+            fixedDimensions: true,
+            showMinAndMax: false,
+            showIcon: false
         },
         90: {
             program: copilot_april_fools,

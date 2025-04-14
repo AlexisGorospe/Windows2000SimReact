@@ -77,6 +77,13 @@ function Notepad(props) {
         setTextAreaContent(textAreaContent + date_rn)
     }
 
+    function view_font (){
+        setWindows((prevWindows) => [
+            ...prevWindows,
+            <Window key={prevWindows.length} titlebar={"Font"} program={6} about_icon={2}/>
+        ]);    
+    }
+
 
     // --view--
     function showViewDDM(){
@@ -88,6 +95,14 @@ function Notepad(props) {
     function view_word_wrap(){
         closeDDMs()
         setWordWrap(!wordWrap)
+    }
+
+    
+    function view_font (){
+        setWindows((prevWindows) => [
+            ...prevWindows,
+            <Window key={prevWindows.length} titlebar={"Font"} program={6} about_icon={2}/>
+        ]);    
     }
 
     // --help--
@@ -148,7 +163,7 @@ function Notepad(props) {
                     <button className="dropbtn" onClick={showViewDDM}>View</button>
                     <div id="myDropdown" className={viewDDM ? 'dropdown-content visible' : 'dropdown-content '}>
                         <a onClick={view_word_wrap}>Word Wrap</a>
-                        <a onClick={"#"}>Font</a>
+                        <a onClick={view_font}>Font</a>
                     </div>
                 </div>
 

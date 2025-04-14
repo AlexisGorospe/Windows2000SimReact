@@ -11,4 +11,17 @@ function ChangeFont(props){
     ]
 
     const [fontSelected, setFontSelected] = useState("calibri")
+
+    
+
+    return(
+        <div>
+            <ul>
+                {fontList.map(font => <p>{font}</p>)}
+            </ul>
+        </div>
+    )
 }
+
+
+export default ChangeFont;
