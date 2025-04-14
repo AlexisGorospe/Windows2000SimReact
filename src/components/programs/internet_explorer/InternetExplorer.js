@@ -7,6 +7,9 @@ function InternetExplorer(){
     const [searchBarContent, setSearchBarContent] = useState("https://metasearx.com") 
     const [test, setTest] = useState(false);
 
+    const [history, setHistory] = useState([])
+    const [historyIndex, setHistoryIndex] = useState(0)
+
     const search = (event) => {
         event.preventDefault();
         console.log(searchBarContent[0,3])
@@ -23,15 +26,16 @@ function InternetExplorer(){
             setCurrentUrl(`https://metasearx.com/?q=${searchBarContent}&categories=general&language=en-US`)
         }
 
-
-
-
         // focus on making it look nice later
     }
 
     const updateUrlOnSearchBar = (event) => {
         const iframe = document.getElementById("myIframe")
         setCurrentUrl(iframe.contentWindow.location.href)
+    }
+
+    const goForwardOrBack = (imcrement) => {
+        
     }
 
     const refresh = () => {
