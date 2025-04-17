@@ -163,7 +163,7 @@ function Window(props){
     // --notepad--
     const notepadChangeFont = (data) => {
         console.log(data)
-        setNotepadChangeFontData(data)
+        setNotepadChangeFontData(data[0])
     }
 
     //check if ther user used an in program way to close the window
