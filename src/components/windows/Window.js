@@ -150,8 +150,20 @@ function Window(props){
     const [message_buttons, setMessage_buttons] = useState(props.message_buttons)
     const [message_sound, setMessage_sound] = useState(props.message_sound)
 
+    // --notepad only--
+    const [notepadChangeFontData, setNotepadChangeFontData] = useState([])
+
+    // functions and stuff
+
+    //  --about--
     if (!about_programName){
         setAbout_programName(" ")
+    }
+
+    // --notepad--
+    const notepadChangeFont = (data) => {
+        console.log(data)
+        setNotepadChangeFontData(data)
     }
 
     //check if ther user used an in program way to close the window
@@ -222,13 +234,6 @@ function Window(props){
                 setCurrentHeight(ref.style.height)
                 setCurrentUnmaximizedPosition(position)
             }}
-        
-
-        // default={{
-        //     x: 100, 
-        //     y: 300, 
-
-        // }}
 
              maxWidth={programList[props.program].fixedDimensions ? programList[props.program].dimensions[0] : 999999}
              minWidth={programList[props.program].fixedDimensions ? programList[props.program].dimensions[0] : 300}
@@ -253,6 +258,8 @@ function Window(props){
 
             about_icon={iconList[about_icon]}
             about_programName={about_programName ? about_programName : "Windows"}
+
+            notepadChangeFont={notepadChangeFont}
 
             message_icon={message_icon}
             message_text={message_text}

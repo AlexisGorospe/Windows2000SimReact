@@ -1,0 +1,1 @@
+ok it appears that the const [notepadChangeFontData, setNotepadChangeFontData] = useState([]) is broken

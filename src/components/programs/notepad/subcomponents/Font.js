@@ -23,7 +23,7 @@ function Font(props){
             "className": "font_fixedsys"
         },
         {
-            "name": "Papytus",
+            "name": "Papyrus",
             "className": "font_papyrus"
         },
         {
@@ -37,13 +37,20 @@ function Font(props){
     ]
 
     const [fontSelected, setFontSelected] = useState("font_calibri")
+    const [sizeSelected, setSizeSelected] = useState(11)
+    const [keepProgramOpen, setKeepProgramOpen] = useState(true)
+
+    const [selectedSettings, setSelectedSettings] = useState(props.notepad_font_selector)
 
     const changeFont = (font) => {
         setFontSelected(font)
     }
 
     const submit = () => {
-        
+        setSelectedSettings([fontSelected, sizeSelected])
+        console.log([fontSelected, sizeSelected])
+        props.notepadChangeFont([fontSelected, sizeSelected])
+        props.keepProgramOpen(false)
     }
     
 
@@ -60,7 +67,7 @@ function Font(props){
             <label>there is the </label>
            <input type="number"/>
 
-           <button>OK</button>
+           <button onClick={submit}>OK</button>
         </div>
     )
 }
