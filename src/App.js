@@ -47,6 +47,9 @@ import snd_logon from "./assets/sounds/logon.wav"
 import snd_logoff from "./assets/sounds/logoff.wav"
 
 import * as PropTypes from "prop-types";
+import Notepad from "./components/programs/notepad/Notepad";
+import Mspaint from "./components/programs/mspaint/Mspaint";
+import InternetExplorer from "./components/programs/internet_explorer/InternetExplorer";
 
 function Draggable(props) {
     return null;
@@ -72,6 +75,25 @@ const App = () => {
 
     //sound
     const [sound_logon] = useSound(snd_logon)
+
+    //quick launch
+    const [quickLaunch, setQuickLaunch] = useState([
+        {
+            "name": "Notepad",
+            "icon": ico_notepad, 
+            "program":  Notepad
+        },
+        {
+            "name": "Internet Explorer",
+            "icon": ico_iexplore, 
+            "program":  InternetExplorer
+        },
+        {
+            "name": "Paint",
+            "icon": ico_mspaint_image, 
+            "program":  Mspaint
+        }
+    ])
 
     //functions-------
 
