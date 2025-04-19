@@ -21,9 +21,7 @@ function Notepad(props) {
     const [windows , setWindows] = useState([]);
     
     const styling = {
-        fontFamily: font,
-        fontSize: size*1.4,
-        color: "red" //color red is here for testing
+        fontSize: size*1.4
     }
 
     function handleTextAreaChange(event){
@@ -205,9 +203,7 @@ function Notepad(props) {
             </div>
 
             <textarea onChange={handleTextAreaChange} value={textAreaContent} name="notepad" 
-            className={`${wordWrap ? '' : 'noWordWrap'} ${font}`}></textarea>
-            <p className={"ddddd"} style={styling}>{font}</p>
-            
+            className={`${wordWrap ? '' : 'noWordWrap'} ${font}`} style={styling}></textarea>            
         </div>
     );
 
