@@ -5,11 +5,11 @@ import React, {useState} from "react";
 
 function Font(props){
     const fontList = [
-        {
-            "name": "Arial",
-            "className": "font_arial"
+        // {
+        //     "name": "Arial",
+        //     "className": "font_arial"
             
-        },
+        // },
         {
             "name": "Calibri",
             "className": "font_calibri"
