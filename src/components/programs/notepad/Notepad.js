@@ -4,13 +4,6 @@ import "./style.css"
 
 //import the fonts later
 
-import font_calibri from "./assets/fonts/calibri/calibri.ttf";
-import font_comic_sans_ms from "./assets/fonts/comic_sans_ms/comic.ttf"; 
-import font_fixedsys from "./assets/fonts/fixedsys/vgafix.fon"
-import font_papyrus from "./assets/fonts/papyrus/PAPYRUS.TTF";
-import font_tahoma from "./assets/fonts/tahoma/tahoma.ttf";
-import font_times_new_roman from "./assets/fonts/times_new_roman/times.ttf";
-
 function Notepad(props) {
     // file
     const [fileDDM, setFileDDM] = useState(false)
@@ -22,20 +15,11 @@ function Notepad(props) {
     const [wordWrap, setWordWrap] = useState(false)
 
 
-    const [font, setFont] = useState(font_calibri)
+    const [font, setFont] = useState("font_calibri")
     const [size, setSize] = useState(11)
 
     const [windows , setWindows] = useState([]);
-
-    const fontList = {
-        "font_calibri": font_calibri,
-        "font_comic_sans_ms": font_comic_sans_ms,
-        "font_fixedsys": font_fixedsys,
-        "font_papyrus": font_papyrus,
-        "font_tahoma": font_tahoma,
-        "font_times_new_roman": font_times_new_roman
-    }
-
+    
     const styling = {
         fontFamily: font,
         fontSize: size*1.4,
@@ -137,6 +121,8 @@ function Notepad(props) {
     }
 
     function changeFont(data){
+
+        console.log(data)
         setFont(data[0])
         setSize(data[1])
     }
@@ -158,7 +144,7 @@ function Notepad(props) {
             titlebar={"About"} 
             program={3}
             about_program_name={"Notepad"}
-            
+            about_icon={2}
             />
         ]);
     }
@@ -219,8 +205,8 @@ function Notepad(props) {
             </div>
 
             <textarea onChange={handleTextAreaChange} value={textAreaContent} name="notepad" 
-            className={`${wordWrap ? '' : 'noWordWrap' + " "}`}></textarea>
-            <p style={styling}>{font}</p>
+            className={`${wordWrap ? '' : 'noWordWrap'} ${font}`}></textarea>
+            <p className={"ddddd"} style={styling}>{font}</p>
             
         </div>
     );

@@ -57,3 +57,28 @@
 }
 
 /*https://www.w3schools.com/howto/howto_js_dropdown.asp*/
+
+
+.font_calibri{
+    font-family: calibri;
+}
+
+.font_comic_sans_ms{
+    font-family: comic_sans_ms;
+}
+
+.font_fixedsys{
+    font-family: fixedsys;
+}
+
+.font_papyrus{
+    font-family: papyrus;
+}
+
+.font_tahoma{
+    font-family: tahoma;
+}
+
+.font_times_new_roman{
+    font-family: times_new_roman;
+}
